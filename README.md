@@ -2,6 +2,11 @@
 Aplicación creadad con Node.js + Express Application + Angular 5
 
 ----------
+## Software Utilizado
+- Versión Node **_9.2.0_**
+- Versión NPM **_5.5.1_**
+----------
+
 
 ## Instalar Dependencias
 Para instalar las dependenciar dividiremos el proyecto en 2, una parte para el cliente y otra para el backend
