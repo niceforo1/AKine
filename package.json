@@ -1,0 +1,27 @@
+{
+  "name": "skp",
+  "version": "0.0.1",
+  "description": "SKP es el sistema para el manejo de pacientes, sus tratamientos medicos y sus turnos",
+  "main": "index.js",
+  "engines": {
+    "node": "9.2.0",
+    "npm": "5.5.1"
+  },
+  "scripts": {
+    "server": "nodemon index.js",
+    "client": "ng serve --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Gabino Santana <gsantana@dicep.com.ar> (https://www.linkedin.com/in/gabino-santana/)",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.0",
+    "express": "^4.16.1",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.12.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}

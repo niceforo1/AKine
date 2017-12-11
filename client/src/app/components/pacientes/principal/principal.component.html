@@ -1,0 +1,32 @@
+<div *ngIf="!listaPacientes">
+  <app-loading></app-loading>
+</div>
+
+<table class="responsive-table striped" *ngIf="listaPacientes">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Fecha Nacimiento</th>
+    <th>Documento</th>
+    <th>Teléfono</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let paciente of listaPacientes">
+    <td>{{paciente.nombre | uppercase}} {{paciente.apellido | uppercase}}</td>
+    <td>{{paciente.fechaNacimiento | date:'dd/M/yyyy'}}</td>
+    <td>{{paciente.nroDocumento}}</td>
+    <td>{{paciente.telefono}} / {{paciente.celular}}</td>
+    <td><a (click)="delete(paciente._id)"><i class="material-icons">delete</i></a></td>
+    <td><a [routerLink]="['/pacientes/editar',paciente._id]"><i class="material-icons">edit</i></a></td>
+  </tr>
+  </tbody>
+</table>
+<div class="fixed-action-btn horizontal">
+  <a class="btn-floating btn-large waves-effect waves-light red" [routerLink]="['/pacientes/agregar']">
+    <i class="large material-icons">add</i>
+  </a>
+</div>
+
