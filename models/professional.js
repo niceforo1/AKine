@@ -15,7 +15,7 @@ const professionalSchema = new Schema({
     address: addressSchema,
     socialInsurance: [{
         type: Schema.ObjectId, ref:'socialInsuranceSchema',
-        number:string,
+        number: String,
     }],
     phones: [phoneSchema],
     license: String,

@@ -16,7 +16,7 @@ const patientSchema = new Schema({
     address: addressSchema,
     socialInsurance: [{
         type: Schema.ObjectId, ref:'socialInsuranceSchema',
-        number:string,
+        number: String,
     }],
     phones: [phoneSchema],
     currentMedication: String,
