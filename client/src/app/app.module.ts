@@ -1,36 +1,34 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import {AppComponent} from './app.component';
+
+import { AppComponent } from './app.component';
+import { DoctorScheduleComponent } from './components/doctor-schedule/doctor-schedule.component';
 import {APP_ROUTING} from "./app.routes";
-import {HomeComponent} from './components/home/home.component';
-import {PrincipalComponent} from './components/pacientes/principal/principal.component';
-import {HttpClientModule} from "@angular/common/http";
-import {LoadingComponent} from './components/shared/loading/loading.component';
-import {NavbarComponent} from "./components/shared/navbar/navbar.component";
-import { AgregarPacienteComponent } from './components/pacientes/agregar-paciente/agregar-paciente.component';
-import { EditarPacienteComponent } from './components/pacientes/editar-paciente/editar-paciente.component';
+import { HomeComponent } from './components/home/home.component';
+import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
+import { TopBarComponent } from './components/shared/top-bar/top-bar.component';
+import { SideBarComponent } from './components/shared/side-bar/side-bar.component';
+import { FloatIconsComponent } from './components/shared/float-icons/float-icons.component';
+import { MorphsearchComponent } from './components/shared/morphsearch/morphsearch.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+    DoctorScheduleComponent,
     HomeComponent,
-    PrincipalComponent,
-    LoadingComponent,
-    AgregarPacienteComponent,
-    EditarPacienteComponent
+    AddDoctorComponent,
+    TopBarComponent,
+    SideBarComponent,
+    FloatIconsComponent,
+    MorphsearchComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpClientModule,
     APP_ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
