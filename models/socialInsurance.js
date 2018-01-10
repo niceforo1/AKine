@@ -11,5 +11,6 @@ const socialInsuranceSchema = new Schema({
   phones: [phoneSchema]
 });
 
-module.exports = socialInsuranceSchema;
+mongoose.model('socialInsurance', socialInsuranceSchema);
+
 
