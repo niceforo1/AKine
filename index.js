@@ -20,7 +20,11 @@ const app = express();
 // Se agrega el middleware body-parser para poder parsear
 // las peticiones entrantes a la app por medio del request
 app.use(bodyParser.json());
-
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
