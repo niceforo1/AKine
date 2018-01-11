@@ -15,7 +15,6 @@ module.exports = (app, mongoose) => {
       const patient = await Patient.findById(req.params.id);
       res.send(patient);
     } catch (err) {
-      console.log(err);
       res.status(500).send(err);
     }
   });
@@ -31,12 +30,13 @@ module.exports = (app, mongoose) => {
         email,
         job,
         picture,
-        address,
-        phones,
         currentMedication,
         addictions,
         pathologies,
-        antecedents
+        antecedents,
+        address,
+        phones,
+        socialInsurance
       } = req.body;
 
       const patient = await new Patient({
@@ -48,18 +48,18 @@ module.exports = (app, mongoose) => {
         email,
         job,
         picture,
-        address,
-        phones,
         currentMedication,
         addictions,
         pathologies,
-        antecedents
+        antecedents,
+        address,
+        phones,
+        socialInsurance
       });
 
-      await patient.save();
+    await patient.save();
       res.send(patient);
     } catch (err) {
-      console.log(err);
       res.status(500).send(err);
     }
   });
@@ -76,7 +76,6 @@ module.exports = (app, mongoose) => {
   app.put('/api/patients/:id', async (req, res) => {
     try {
       const pac = await Patient.update({ _id: req.params.id }, req.body);
-      console.log(pac);
       //MODIFICAR ESTO PARA RETORNAR LO QUE REALMENTE SUCEDIO
       //HAY QUE VERIFICAR EL RETORNO PARA COMPROBAR QUE REALMENTE HAYA ACTUALIZADO ALGO
       const patient = await Paciente.find();

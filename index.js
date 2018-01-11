@@ -4,8 +4,11 @@ const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 
 // Se importan los modelos
-require('./models/socialInsurance');
 require('./models/patient');
+require('./models/professional');
+require('./models/medicalRecord');
+require('./models/socialInsurance');
+
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI, {
@@ -46,6 +49,8 @@ app.use((req, res, next) => {
 // se le pasa por parametro al archivo externo el cual modifica la app
 // agregando las rutas necesarias para la aplicación
 require('./routes/patientsRoutes')(app, mongoose);
+require('./routes/professionalsRoutes')(app, mongoose);
+require('./routes/medicalRecordsRoutes')(app, mongoose);
 require('./routes/socialInsurancesRoutes')(app, mongoose);
 // Consulta de ambientes, para el caso que sea production
 // el frontend se carga desde el build y se setea como middleware

@@ -13,8 +13,6 @@ const patientSchema = new Schema({
   email: String,
   job: String,
   picture: String,
-  address: addressSchema,
-  phones: [phoneSchema],
   currentMedication: String,
   addictions: String,
   pathologies: String,
@@ -23,9 +21,13 @@ const patientSchema = new Schema({
     family: String,
     habits: String
   },
+  address: addressSchema,
+  phones: [phoneSchema],
   socialInsurance: [{
-      socialInsurance: { type: Schema.Types.ObjectId, ref: 'socialInsuranceSchema'},
-      numberTarget: String
+      socialInsurance: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'socialInsuranceSchema'},
+      number: String,
   }]
 });
 

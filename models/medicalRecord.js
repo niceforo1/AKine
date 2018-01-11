@@ -10,7 +10,7 @@ const medicalRecordSchema = new Schema({
   medicalRecordType: String,
   weight: Number,
   height: Number,
-  bloodPressure: Number,
+  bloodPressure: String,
   physicalExam: String,
   complementaryStudies: String,
   observations: String,

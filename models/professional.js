@@ -12,17 +12,16 @@ const professionalSchema = new Schema({
   gender: { type: String, enum: ['m', 'f'] },
   email: String,
   picture: String,
-  address: addressSchema,
-  socialInsurance: [
-    {
-      type: Schema.ObjectId,
-      ref: 'socialInsuranceSchema',
-      number: String
-    }
-  ],
-  phones: [phoneSchema],
   license: String,
-  specialities: String
+  specialities: String,
+  address: addressSchema,
+  phones: [phoneSchema],
+  socialInsurance: [{
+      socialInsurance: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'socialInsuranceSchema'},
+      number: String,
+  }]
 });
 
 mongoose.model('professional', professionalSchema);
