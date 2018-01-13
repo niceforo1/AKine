@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const addressSchema = require('./address');
-const socialInsuranceSchema = require('./socialInsurance');
 const phoneSchema = require('./phone');
+const socialInsuranceSchema = require('./socialInsurance');
 const { Schema } = mongoose;
 
 const professionalSchema = new Schema({
