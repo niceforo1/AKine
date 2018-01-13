@@ -1,7 +1,7 @@
-import {ObraSocial} from "./ObraSocial";
+import {ObraSocial} from './ObraSocial';
 
 export class Paciente {
-  public _id:string;
+  public _id: string;
   public nroDocumento: string;
   public nombre: string;
   public apellido: string;
@@ -9,10 +9,10 @@ export class Paciente {
   public telefono: string;
   public celular: string;
   public mail: string;
-  //direccion: [direccionSchema],
+  /*direccion: [direccionSchema],*/
   public sexo: string;
   public obraSocial: ObraSocial;
 
-  constructor(){
+  constructor() {
   }
 }
