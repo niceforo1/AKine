@@ -8,10 +8,5 @@ export class SocialInsurance {
   public address: Address;
   public phones: Phone;
   constructor() {
-    this.name = '';
-    this.contact = '';
-    this.email = '';
-    /*this.address = Address; ¿Como sea agrega?;*/
-    /*this.phones = Phone; ¿Como sea agrega?;*/
   }
 }

@@ -6,10 +6,5 @@ export class Address {
   public neighborhood: string;
   public zip: string;
   constructor() {
-    this.street = '';
-    this.city = '';
-    this.state = '';
-    this.neighborhood = '';
-    this.zip = '';
   }
 }
