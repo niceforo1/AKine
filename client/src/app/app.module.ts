@@ -24,7 +24,7 @@ import { MorphsearchComponent } from './components/shared/morphsearch/morphsearc
     DoctorScheduleComponent,
     HomeComponent,
     AddDoctorComponent,
-    PatientAddComponent
+    PatientAddComponent,
     TopBarComponent,
     SideBarComponent,
     FloatIconsComponent,
