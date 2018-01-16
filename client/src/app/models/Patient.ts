@@ -3,6 +3,7 @@ import {Phone} from './Phone';
 import {SocialInsurance} from './SocialInsurance';
 export class Patient {
   public _id: string;
+  public id: string;
   public name: string;
   public lastName: string;
   public birthDate: Date;
@@ -19,8 +20,8 @@ export class Patient {
     family: String,
     habits: String
   };*/
-  public address: Address;
-  public phones: Phone;
+  public address: String;
+  public phones: String;
   /*¿Como sea agrega?;*/
   /*public socialInsurance: [{
     socialInsurance: SocialInsurance,

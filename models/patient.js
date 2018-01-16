@@ -9,7 +9,7 @@ const patientSchema = new Schema({
   name: String,
   lastName: String,
   birthDate: Date,
-  gender: { type: String, enum: ['m', 'f'] },
+  gender: { type: String, enum: ['m', 'f','o'] },
   email: String,
   job: String,
   picture: String,

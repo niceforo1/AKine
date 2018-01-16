@@ -9,6 +9,9 @@ import { DoctorScheduleComponent } from './components/doctor-schedule/doctor-sch
 import {APP_ROUTING} from "./app.routes";
 import { HomeComponent } from './components/home/home.component';
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
+/*PATIENT*/
+import {PatientAddComponent} from "./components/patient/patient-add/patient-add.component";
+/*Moduls*/
 import { TopBarComponent } from './components/shared/top-bar/top-bar.component';
 import { SideBarComponent } from './components/shared/side-bar/side-bar.component';
 import { FloatIconsComponent } from './components/shared/float-icons/float-icons.component';
@@ -21,6 +24,7 @@ import { MorphsearchComponent } from './components/shared/morphsearch/morphsearc
     DoctorScheduleComponent,
     HomeComponent,
     AddDoctorComponent,
+    PatientAddComponent
     TopBarComponent,
     SideBarComponent,
     FloatIconsComponent,
