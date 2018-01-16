@@ -21,11 +21,9 @@ export class AddDoctorComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.professional);
-    /*this._professionalService.saveProfessional(this.professional).subscribe(data => {
-      console.log(professional);
-      //this._router.navigate(['/professional']);
-    });*/
+    this._professionalService.saveProfessional(this.professional).subscribe(data => {
+      this._router.navigate(['/doctor']);
+    });
   }
 
 }

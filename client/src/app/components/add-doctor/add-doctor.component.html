@@ -58,14 +58,14 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <div class="form-line">
-                    <input type="text" class="form-control"  placeholder="Nombres">
+                    <input type="text" class="form-control"  placeholder="Nombres" [(ngModel)]="professional.name">
                   </div>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <div class="form-line">
-                    <input type="text" class="form-control" placeholder="Apellidos">
+                    <input type="text" class="form-control" placeholder="Apellidos" [(ngModel)]="professional.lastName">
                   </div>
                 </div>
               </div>
@@ -133,7 +133,7 @@
                 </div>
               </div>
               <div class="col-sm-12">
-                <button type="submit" class="btn btn-raised g-bg-cyan">Guardar</button>
+                <button type="submit" class="btn btn-raised g-bg-cyan" (click)="onSubmit()">Guardar</button>
                 <button type="submit" class="btn btn-raised">Cancelar</button>
               </div>
             </div>

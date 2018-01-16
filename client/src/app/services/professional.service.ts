@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class ProfessionalService {
-  urlMain: string = 'http://localhost:5000/api/professional';
+  urlMain: string = 'http://localhost:5000/api/professionals';
 
   constructor(private _http: HttpClient) {}
 
