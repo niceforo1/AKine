@@ -22,7 +22,7 @@ export class PatientAddComponent implements OnInit {
 
   onSubmit() {
     this._patientService.savePatient(this.patient).subscribe(data => {
-      this._router.navigate(['/patient']);
+      this._router.navigate(['/patients']);
     });
   }
 

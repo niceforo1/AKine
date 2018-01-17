@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class PatientService {
-  urlMain: string = 'http://localhost:5000/api/patient';
+  urlMain: string = 'http://localhost:5000/api/patients';
 
   constructor(private _http: HttpClient) {}
 
