@@ -2,10 +2,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { DoctorScheduleComponent } from "./components/doctor-schedule/doctor-schedule.component";
 import { HomeComponent } from "./components/home/home.component";
 /*PROFESSIONAL*/
-import { AddDoctorComponent } from "./components/add-doctor/add-doctor.component";
+import { AddDoctorComponent } from "./components/doctor/add-doctor/add-doctor.component";
+import {ListDoctorComponent} from "./components/doctor/list-doctor/list-doctor.component";
+
 /*PATIENT*/
 import { PatientAddComponent } from "./components/patient/patient-add/patient-add.component";
-import {ListDoctorComponent} from "./components/doctor/list-doctor/list-doctor.component";
 
 const APP_ROUTES: Routes = [
   { path: 'doctor', component: DoctorScheduleComponent },

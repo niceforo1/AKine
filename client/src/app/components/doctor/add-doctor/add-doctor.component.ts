@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {Professional} from "../../models/Professional";
-import {Phone} from "../../models/Phone";
-import {Address} from "../../models/Address";
-import {SocialInsurance} from "../../models/SocialInsurance";
-import {ProfessionalService} from "../../services/professional.service";
+import {Address} from "../../../models/Address";
+import {ProfessionalService} from "../../../services/professional.service";
+import {Professional} from "../../../models/Professional";
+import {Phone} from "../../../models/Phone";
+import {SocialInsurance} from "../../../models/SocialInsurance";
+
 
 @Component({
   selector: 'app-add-doctor',
-  templateUrl: './add-doctor.component.html',
+  templateUrl: 'add-doctor.component.html',
   providers: [
     ProfessionalService
   ]

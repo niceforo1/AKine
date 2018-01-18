@@ -9,7 +9,7 @@ import { DoctorScheduleComponent } from './components/doctor-schedule/doctor-sch
 import { APP_ROUTING } from "./app.routes";
 import { HomeComponent } from './components/home/home.component';
 /*DOCTOR*/
-import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
+import { AddDoctorComponent } from './components/doctor/add-doctor/add-doctor.component';
 /*PATIENT*/
 import { PatientAddComponent } from './components/patient/patient-add/patient-add.component';
 /*Moduls*/

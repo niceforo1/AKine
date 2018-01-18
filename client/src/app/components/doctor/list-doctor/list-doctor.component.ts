@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 export class ListDoctorComponent implements OnInit {
 
   professional : any;
-  professionals: any[];
+  professionals: any;
 
   constructor(private _professionalService: ProfessionalService, private router: Router) {
     this.professionals = this.getProfessionals();
