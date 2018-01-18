@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<title>:: Swift - Hospital Admin ::</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+<!-- JQuery DataTable Css -->
+<link href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link href="assets/css/main.css" rel="stylesheet">
+<!-- Custom Css -->
+
+<!-- Swift Themes. You can choose a theme from css/themes instead of get all themes -->
+<link href="assets/css/themes/all-themes.css" rel="stylesheet" />
+</head>
+
+<body class="theme-cyan">
+<!-- Page Loader -->
+<!--<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <p>Please wait...</p>
+    </div>
+</div>-->
+<!-- #END# Page Loader -->
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>Doctores</h2>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>Doctores</h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body table-responsive">
+                        <table class="table table-bordered table-striped table-hover js-basic-example dataTable" *ngIf="professionals">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Matricula</th>
+                                    <th>DNI</th>
+                                    <th>Fecha de nacimiento</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <tr *ngFor="let professional of professionals">
+                                  <th>{{professional.name}}</th>
+                                  <th>{{professional.lastName}}</th>
+                                  <th>{{professional.license}}</th>
+                                  <th>{{professional.id}}</th>
+                                  <th>{{professional.birthDate}}</th>
+                                  <th>
+                                      <a  [routerLink]="['add-doctor']">
+                                          <i class="material-icons">edit_mode</i>
+                                      </a>
+                                  </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="color-bg"></div>
+<!-- Jquery Core Js -->
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+<script src="assets/bundles/morphingsearchscripts.bundle.js"></script> <!-- morphing search Js -->
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+
+<script src="assets/bundles/datatablescripts.bundle.js"></script><!-- Jquery DataTable Plugin Js -->
+
+<script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+<script src="assets/bundles/morphingscripts.bundle.js"></script><!-- morphing search page js -->
+<script src="assets/js/morphing.js"></script><!-- Custom Js -->
+<script src="assets/js/pages/tables/jquery-datatable.js"></script>
+</body>
+</html>

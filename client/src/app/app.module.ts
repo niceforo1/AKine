@@ -8,9 +8,11 @@ import { AppComponent } from './app.component';
 import { DoctorScheduleComponent } from './components/doctor-schedule/doctor-schedule.component';
 import { APP_ROUTING } from "./app.routes";
 import { HomeComponent } from './components/home/home.component';
+/*DOCTOR*/
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
+import { ListDoctorsComponent } from './components/list-doctors/list-doctors.component';
 /*PATIENT*/
-import { PatientAddComponent } from "./components/patient/patient-add/patient-add.component";
+import { PatientAddComponent } from './components/patient/patient-add/patient-add.component';
 /*Moduls*/
 import { TopBarComponent } from './components/shared/top-bar/top-bar.component';
 import { SideBarComponent } from './components/shared/side-bar/side-bar.component';
@@ -24,6 +26,7 @@ import { MorphsearchComponent } from './components/shared/morphsearch/morphsearc
     DoctorScheduleComponent,
     HomeComponent,
     AddDoctorComponent,
+    //ListDoctorsComponent,
     PatientAddComponent,
     TopBarComponent,
     SideBarComponent,

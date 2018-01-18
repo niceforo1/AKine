@@ -55,7 +55,7 @@ export class AddDoctorComponent implements OnInit {
 
   saveProfessional(){
     this._professionalService.saveProfessional(this.professional).subscribe(data => {
-      this._router.navigate(['/doctor']);
+      this._router.navigate(['/list-doctors']);
     });
   }
 
