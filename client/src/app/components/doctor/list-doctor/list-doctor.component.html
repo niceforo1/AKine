@@ -1,0 +1,69 @@
+<head>
+  <link href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+</head>
+
+
+<div class="overlay"></div>
+
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <h2>Doctores</h2>
+    </div>
+    <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2>Doctores</h2>
+            <ul class="header-dropdown">
+              <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
+                <ul class="dropdown-menu pull-right">
+                  <li><a href="javascript:void(0);">Action</a></li>
+                  <li><a href="javascript:void(0);">Another action</a></li>
+                  <li><a href="javascript:void(0);">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="body table-responsive">
+            <table class="table table-bordered table-striped table-hover js-basic-example dataTable" *ngIf="professionals">
+              <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Matricula</th>
+                <th>DNI</th>
+                <th>Fecha de nacimiento</th>
+                <th></th>
+              </tr>
+              </thead>
+
+              <tbody>
+              <tr *ngFor="let professional of professionals">
+                <th>{{professional.name}}</th>
+                <th>{{professional.lastName}}</th>
+                <th>{{professional.license}}</th>
+                <th>{{professional.id}}</th>
+                <th>{{professional.birthDate}}</th>
+                <th>
+                  <a  [routerLink]="['add-doctor']">
+                    <i class="material-icons">edit_mode</i>
+                  </a>
+                </th>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="color-bg"></div>
+<!-- Jquery Core Js -->
+
+<script src="assets/bundles/datatablescripts.bundle.js"></script><!-- Jquery DataTable Plugin Js -->
+<script src="assets/js/morphing.js"></script><!-- Custom Js -->
+<script src="assets/js/pages/tables/jquery-datatable.js"></script>
+
