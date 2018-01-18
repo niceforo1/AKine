@@ -87,31 +87,31 @@
                   <div class="col-sm-3">
                     <div class="form-group">
                       <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Documento">
+                        <input type="text" class="form-control" placeholder="Documento" [(ngModel)]="professional.id">
                       </div>
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="form-group">
                       <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Teléfono">
+                        <input type="text" class="form-control" placeholder="Teléfono" [(ngModel)]="phone.number">
                       </div>
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="form-group">
                       <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Fecha de Nac.(DD/MM/AAAA)">
+                        <input type="date" class="form-control" placeholder="Fecha de Nac.(DD/MM/AAAA)"
+                        [(ngModel)]="professional.birthDate">
                       </div>
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="form-group drop-custum">
-                      <select class="form-control show-tick">
+                      <select class="form-control show-tick"  [(ngModel)]="professional.gender">
                         <option value="">-- Genero --</option>
-                        <option value="10">Masculino</option>
-                        <option value="20">Femenino</option>
-                        <option value="30">Otro</option>
+                        <option value="m">Masculino</option>
+                        <option value="f">Femenino</option>
                       </select>
                     </div>
                   </div>
@@ -120,28 +120,28 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Domicilio">
+                        <input type="text" class="form-control" placeholder="Domicilio" [(ngModel)]="address.street">
                       </div>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Email">
+                        <input type="text" class="form-control" placeholder="Email" [(ngModel)]="professional.email">
                       </div>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Licencia">
+                        <input type="text" class="form-control" placeholder="Licencia" [(ngModel)]="professional.license">
                       </div>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Especialidad">
+                        <input type="text" class="form-control" placeholder="Especialidad" [(ngModel)]="professional.specialities">
                       </div>
                     </div>
                   </div>
