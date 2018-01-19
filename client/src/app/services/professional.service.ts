@@ -27,4 +27,8 @@ export class ProfessionalService {
   updateProfessional(professional, id) {
     return this._http.put(`${this.urlMain}/${id}`, professional);
   }
+
+  getProfessionalByDoc(doc: string){
+    return this._http.get(`${this.urlMain}Doc/${doc}`);
+  }
 }

@@ -19,6 +19,15 @@ module.exports = (app, mongoose) => {
     }
   });
 
+  app.get('/api/professionalsDoc/:document', async (req, res) => {
+    try {
+      const professional = await Professional.findOne({id: req.params.document});
+      res.send(professional);
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  });
+
   app.post('/api/professionals', async (req, res) => {
     try {
       const {

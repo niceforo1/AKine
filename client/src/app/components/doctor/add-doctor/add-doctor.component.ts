@@ -15,6 +15,7 @@ import {SocialInsurance} from "../../../models/SocialInsurance";
   ]
 })
 export class AddDoctorComponent implements OnInit {
+  message : string;
   professional : Professional;
   phone : Phone;
   phones : Phone[];
@@ -23,6 +24,7 @@ export class AddDoctorComponent implements OnInit {
   socialInsurances : SocialInsurance[];
 
   constructor(private _professionalService: ProfessionalService, private _router: Router) {
+    this.message = null;
     this.phones = new Array();
     this.socialInsurances = new Array();
     this.professional = new Professional();
@@ -45,19 +47,25 @@ export class AddDoctorComponent implements OnInit {
   }
 
   onSubmit() {
+    this.message = null;
     this.phones.push(this.phone);
     this.professional.phones = this.phones;
     this.professional.address = this.address;
     this.socialInsurances.push(this.socialInsurance);
     this.professional.socialInsurance = this.socialInsurances;
-    console.log(this.professional);
     this.saveProfessional();
   }
 
   saveProfessional(){
-    this._professionalService.saveProfessional(this.professional).subscribe(data => {
-      this._router.navigate(['/list-doctors']);
-    });
+    this._professionalService.getProfessionalByDoc(this.professional.id).subscribe(data => {
+      if(data){
+        this.message = "Ya se encuentra registrado un doctor con el documento ingresado."
+      }else{
+        this._professionalService.saveProfessional(this.professional).subscribe(data => {
+          this._router.navigate(['/list-doctors']);
+        });
+      }
+    }
   }
 
 }
