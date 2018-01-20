@@ -1,27 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {PatientService} from '../../../services/patient.service';
 import {Patient} from '../../../models/patient';
 import {Address} from '../../../models/Address';
 import {Phone} from '../../../models/Phone';
 import {SocialInsurance} from '../../../models/SocialInsurance';
+
 @Component({
-  selector: 'app-patient-add',
-  templateUrl: './patient-add.component.html',
+  selector: 'app-add-patient',
+  templateUrl: './add-patient.component.html',
   providers: [
     PatientService
   ]
 })
-export class PatientAddComponent implements OnInit {
+
+export class AddPatientComponent implements OnInit {
   message : string;
-  patient : Patient;
+  patient : any;
   phone : Phone;
   phones : Phone[];
   address : Address;
   socialInsurance : SocialInsurance;
   socialInsurances : SocialInsurance[];
 
-  constructor(private _patientService: PatientService, private _router: Router) {
+  constructor(private _patientService: PatientService, private _router: Router, private _activatedRoute: ActivatedRoute) {
     this.message = null;
     this.phones = new Array();
     this.socialInsurances = new Array();
@@ -50,6 +52,15 @@ export class PatientAddComponent implements OnInit {
   }
 
   ngOnInit() {
+    let id;
+    this._activatedRoute
+      .queryParams
+      .subscribe(params => {
+        id = params['id'];
+      });
+    if(id){
+      this.getPatients(id)
+    }
   }
 
   onSubmit() {
@@ -65,6 +76,12 @@ export class PatientAddComponent implements OnInit {
   savePatient() {
     this._patientService.savePatient(this.patient).subscribe(data => {
       this._router.navigate(['/list-patients']);
+    });
+  }
+
+  getPatients(id){
+    this._patientService.searchPatient(id).subscribe(response => {
+      this.patient = response;
     });
   }
 

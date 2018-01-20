@@ -6,14 +6,14 @@ import { AddDoctorComponent } from "./components/doctor/add-doctor/add-doctor.co
 import {ListDoctorComponent} from "./components/doctor/list-doctor/list-doctor.component";
 
 /*PATIENT*/
-import { PatientAddComponent } from "./components/patient/patient-add/patient-add.component";
+import { AddPatientComponent }  from "./components/patient/add-patient/add-patient.component";
 import { ListPatientComponent } from './components/patient/list-patient/list-patient.component';
 
 const APP_ROUTES: Routes = [
   { path: 'doctor', component: DoctorScheduleComponent },
   { path: 'add-doctor', component: AddDoctorComponent },
   { path: 'list-doctors', component: ListDoctorComponent },
-  { path: 'patient-add', component: PatientAddComponent },
+  { path: 'add-patient', component: AddPatientComponent },
   { path: 'list-patients', component: ListPatientComponent },
   { path: '**', pathMatch: 'full', component: HomeComponent }
 ];

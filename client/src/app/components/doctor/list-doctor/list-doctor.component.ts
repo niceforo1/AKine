@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProfessionalService } from '../../../services/professional.service';
 
-
 @Component({
   selector: 'app-list-doctor',
   templateUrl: './list-doctor.component.html',

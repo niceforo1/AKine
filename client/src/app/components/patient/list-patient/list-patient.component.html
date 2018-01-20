@@ -46,9 +46,10 @@
                 <th>{{patient.id}}</th>
                 <th>{{patient.birthDate}}</th>
                 <th>
-                  <a  [routerLink]="['add-doctor']">
-                    <i class="material-icons">edit_mode</i>
-                  </a>
+                  <button type="submit" class="btn btn-raised g-bg-cyan" (click)="edit(professional._id)">
+                    <i class="material-icons" >edit_mode</i>
+                    Editar
+                  </button>
                 </th>
               </tr>
               </tbody>

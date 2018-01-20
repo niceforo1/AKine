@@ -5,6 +5,7 @@ import {Professional} from '../../../models/Professional';
 import {Address} from '../../../models/Address';
 import {Phone} from '../../../models/Phone';
 import {SocialInsurance} from '../../../models/SocialInsurance';
+
 @Component({
   selector: 'app-add-doctor',
   templateUrl: 'add-doctor.component.html',
@@ -12,6 +13,7 @@ import {SocialInsurance} from '../../../models/SocialInsurance';
     ProfessionalService
   ]
 })
+
 export class AddDoctorComponent implements OnInit {
   message : string;
   professional : any;

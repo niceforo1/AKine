@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PatientService } from '../../../services/patient.service';
 
-
 @Component({
   selector: 'app-list-patient',
   templateUrl: './list-patient.component.html',
@@ -27,6 +26,11 @@ export class ListPatientComponent implements OnInit {
       console.log(response);
       this.patients = response;
     });
+  }
+
+  edit(id){
+    this.router.navigate(['/add-patient'],
+      {queryParams: {id: id}});
   }
 
 
