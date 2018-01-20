@@ -57,6 +57,11 @@
                     <div class="form-group">
                       <div class="form-line">
                         <input type="text" class="form-control" placeholder="Nombres" [(ngModel)]="patient.name">
+                        <div [hidden]="patient.name.valid || patient.name.pristine"
+                             class="alert alert-danger">
+                          <div [hidden]="!patient.name.hasError('required')">Name is required</div>
+                          <div [hidden]="!patient.name.hasError('pattern')">Only alphabetsallowed</div>
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -30,23 +30,30 @@
               <thead>
               <tr>
                 <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Matricula</th>
+                <th>Contacto</th>
                 <th>DNI</th>
-                <th>Fecha de nacimiento</th>
+                <th>Edad</th>
                 <th></th>
               </tr>
               </thead>
 
               <tbody>
               <tr *ngFor="let patient of patients">
-                <th>{{patient.name}}</th>
-                <th>{{patient.lastName}}</th>
-                <th>{{patient.license}}</th>
+                <th>
+                  {{patient.lastName}}, {{patient.name}}
+                  <br>
+                  <small>DNI: {{patient.id}} </small>
+                </th>
+                <th>
+                  <i class="tiny material-icons">phone</i> {{patient.id}}
+                  <br>
+                  <i class="tiny material-icons">mail_outline</i> {{patient.email}}
+                </th>
+
                 <th>{{patient.id}}</th>
                 <th>{{patient.birthDate}}</th>
                 <th>
-                  <button type="submit" class="btn btn-raised g-bg-cyan" (click)="edit(professional._id)">
+                  <button type="submit" class="btn btn-raised g-bg-cyan" (click)="edit(patient._id)">
                     <i class="material-icons" >edit_mode</i>
                     Editar
                   </button>
