@@ -23,9 +23,13 @@ export class ListDoctorComponent implements OnInit {
 
   getProfessionals(){
     this._professionalService.getProfessional().subscribe(response => {
-      console.log(response);
       this.professionals = response;
     });
+  }
+
+  edit(id){
+    this.router.navigate(['/add-doctor'],
+         {queryParams: {id: id}});
   }
 
 

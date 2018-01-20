@@ -46,9 +46,10 @@
                 <th>{{professional.id}}</th>
                 <th>{{professional.birthDate}}</th>
                 <th>
-                  <a  [routerLink]="['add-doctor']">
-                    <i class="material-icons">edit_mode</i>
-                  </a>
+                  <button type="submit" class="btn btn-raised g-bg-cyan" (click)="edit(professional._id)">
+                    <i class="material-icons" >edit_mode</i>
+                    Editar
+                  </button>
                 </th>
               </tr>
               </tbody>
@@ -66,4 +67,3 @@
 <script src="assets/bundles/datatablescripts.bundle.js"></script><!-- Jquery DataTable Plugin Js -->
 <script src="assets/js/morphing.js"></script><!-- Custom Js -->
 <script src="assets/js/pages/tables/jquery-datatable.js"></script>
-

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {ProfessionalService} from '../../../services/professional.service';
 import {Professional} from '../../../models/Professional';
 import {Address} from '../../../models/Address';
@@ -14,14 +14,14 @@ import {SocialInsurance} from '../../../models/SocialInsurance';
 })
 export class AddDoctorComponent implements OnInit {
   message : string;
-  professional : Professional;
+  professional : any;
   phone : Phone;
   phones : Phone[];
   address : Address;
   socialInsurance : SocialInsurance;
   socialInsurances : SocialInsurance[];
 
-  constructor(private _professionalService: ProfessionalService, private _router: Router) {
+  constructor(private _professionalService: ProfessionalService, private _router: Router, private _activatedRoute: ActivatedRoute) {
     this.message = null;
     this.phones = new Array();
     this.socialInsurances = new Array();
@@ -41,6 +41,15 @@ export class AddDoctorComponent implements OnInit {
   }
 
   ngOnInit() {
+    let id;
+    this._activatedRoute
+       .queryParams
+       .subscribe(params => {
+           id = params['id'];
+       });
+    if(id){
+        this.getProfessional(id)
+    }
   }
 
   onSubmit() {
@@ -63,6 +72,12 @@ export class AddDoctorComponent implements OnInit {
         });
       }
     })
+  }
+
+  getProfessional(id){
+    this._professionalService.searchProfessional(id).subscribe(response => {
+      this.professional = response;
+    });
   }
 
 }
