@@ -10,14 +10,15 @@ import { APP_ROUTING } from "./app.routes";
 import { HomeComponent } from './components/home/home.component';
 /*DOCTOR*/
 import { AddDoctorComponent } from './components/doctor/add-doctor/add-doctor.component';
+import { ListDoctorComponent } from './components/doctor/list-doctor/list-doctor.component';
 /*PATIENT*/
 import { PatientAddComponent } from './components/patient/patient-add/patient-add.component';
+import { ListPatientComponent } from './components/patient/list-patient/list-patient.component';
 /*Moduls*/
 import { TopBarComponent } from './components/shared/top-bar/top-bar.component';
 import { SideBarComponent } from './components/shared/side-bar/side-bar.component';
 import { FloatIconsComponent } from './components/shared/float-icons/float-icons.component';
 import { MorphsearchComponent } from './components/shared/morphsearch/morphsearch.component';
-import { ListDoctorComponent } from './components/doctor/list-doctor/list-doctor.component';
 
 
 @NgModule({
@@ -26,12 +27,13 @@ import { ListDoctorComponent } from './components/doctor/list-doctor/list-doctor
     DoctorScheduleComponent,
     HomeComponent,
     AddDoctorComponent,
+    ListDoctorComponent,
     PatientAddComponent,
+    ListPatientComponent,
     TopBarComponent,
     SideBarComponent,
     FloatIconsComponent,
-    MorphsearchComponent,
-    ListDoctorComponent
+    MorphsearchComponent
   ],
   imports: [
     BrowserModule,

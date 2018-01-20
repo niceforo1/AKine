@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ProfessionalService} from "../../../services/professional.service";
-import {Router} from "@angular/router";
+import { Router } from '@angular/router';
+import { ProfessionalService } from '../../../services/professional.service';
+
 
 @Component({
   selector: 'app-list-doctor',
@@ -10,7 +11,6 @@ import {Router} from "@angular/router";
   ]
 })
 export class ListDoctorComponent implements OnInit {
-
   professional : any;
   professionals: any;
 

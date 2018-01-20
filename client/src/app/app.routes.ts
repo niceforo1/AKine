@@ -7,12 +7,14 @@ import {ListDoctorComponent} from "./components/doctor/list-doctor/list-doctor.c
 
 /*PATIENT*/
 import { PatientAddComponent } from "./components/patient/patient-add/patient-add.component";
+import { ListPatientComponent } from './components/patient/list-patient/list-patient.component';
 
 const APP_ROUTES: Routes = [
   { path: 'doctor', component: DoctorScheduleComponent },
   { path: 'add-doctor', component: AddDoctorComponent },
-  { path: 'patient-add', component: PatientAddComponent },
   { path: 'list-doctors', component: ListDoctorComponent },
+  { path: 'patient-add', component: PatientAddComponent },
+  { path: 'list-patients', component: ListPatientComponent },
   { path: '**', pathMatch: 'full', component: HomeComponent }
 ];
 

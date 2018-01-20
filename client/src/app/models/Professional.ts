@@ -1,6 +1,6 @@
 import {Phone} from './Phone';
-import {SocialInsurance} from './SocialInsurance';
 import {Address} from './Address';
+import {SocialInsurance} from './SocialInsurance';
 
 export class Professional {
   public _id: string;
@@ -11,6 +11,7 @@ export class Professional {
   public gender: string;
   public email: string;
   public picture: string;
+
   public license: string;
   public specialities: string;
   public address: Address;

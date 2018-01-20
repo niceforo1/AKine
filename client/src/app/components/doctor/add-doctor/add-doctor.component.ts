@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {Address} from "../../../models/Address";
-import {ProfessionalService} from "../../../services/professional.service";
-import {Professional} from "../../../models/Professional";
-import {Phone} from "../../../models/Phone";
-import {SocialInsurance} from "../../../models/SocialInsurance";
-
-
+import {ProfessionalService} from '../../../services/professional.service';
+import {Professional} from '../../../models/Professional';
+import {Address} from '../../../models/Address';
+import {Phone} from '../../../models/Phone';
+import {SocialInsurance} from '../../../models/SocialInsurance';
 @Component({
   selector: 'app-add-doctor',
   templateUrl: 'add-doctor.component.html',
@@ -40,7 +38,6 @@ export class AddDoctorComponent implements OnInit {
     this.socialInsurance.name = "Swiss Medical";
     this.socialInsurance.contact = '123456';
     this.socialInsurance.email = 'swiss.medical@sw.com';
-
   }
 
   ngOnInit() {
@@ -56,16 +53,16 @@ export class AddDoctorComponent implements OnInit {
     this.saveProfessional();
   }
 
-  saveProfessional(){
+  saveProfessional() {
     this._professionalService.getProfessionalByDoc(this.professional.id).subscribe(data => {
       if(data){
-        this.message = "Ya se encuentra registrado un doctor con el documento ingresado."
+        this.message = 'Ya se encuentra registrado un doctor con el documento ingresado.'
       }else{
         this._professionalService.saveProfessional(this.professional).subscribe(data => {
           this._router.navigate(['/list-doctors']);
         });
       }
-    }
+    })
   }
 
 }

@@ -9,24 +9,20 @@ export class Patient {
   public birthDate: Date;
   public gender: string;
   public email: string;
-  public job: string;
   public picture: string;
+
+  public job: string;
   public currentMedication: string;
   public addictions: string;
   public pathologies: string;
-  /*¿Como sea agrega?;*/
-  /*public antecedents: {
+  public antecedents: {
     personal: String,
     family: String,
     habits: String
-  };*/
-  public address: String;
-  public phones: String;
-  /*¿Como sea agrega?;*/
-  /*public socialInsurance: [{
-    socialInsurance: SocialInsurance,
-    number: String
-  }];*/
+  };
+  public address: Address;
+  public phones : Phone[];
+  public socialInsurance : SocialInsurance[];
   constructor() {
   }
 }
