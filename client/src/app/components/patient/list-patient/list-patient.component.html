@@ -1,5 +1,12 @@
 <head>
   <link href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <style>
+    .valign-center {
+      display: inline-flex;
+      vertical-align: middle;
+      align-items: center;
+    }
+  </style>
 </head>
 
 
@@ -26,12 +33,11 @@
             </ul>
           </div>
           <div class="body table-responsive">
-            <table class="table table-bordered table-striped table-hover js-basic-example dataTable" *ngIf="patients">
+            <table class="table table-striped table-hover js-basic-example dataTable" *ngIf="patients">
               <thead>
               <tr>
                 <th>Nombre</th>
                 <th>Contacto</th>
-                <th>DNI</th>
                 <th>Edad</th>
                 <th></th>
               </tr>
@@ -45,17 +51,14 @@
                   <small>DNI: {{patient.id}} </small>
                 </th>
                 <th>
-                  <i class="tiny material-icons">phone</i> {{patient.id}}
+                  <i class="material-icons small valign-center" style="font-size:16px;">phone</i>  {{patient.id}}
                   <br>
-                  <i class="tiny material-icons">mail_outline</i> {{patient.email}}
+                  <i class="material-icons small valign-center" style="font-size:16px;">mail_outline</i> {{patient.email}}
                 </th>
-
-                <th>{{patient.id}}</th>
-                <th>{{patient.birthDate}}</th>
+                <th>{{patient.birthDate | date:"dd/MM/YYYY"}}</th>
                 <th>
-                  <button type="submit" class="btn btn-raised g-bg-cyan" (click)="edit(patient._id)">
-                    <i class="material-icons" >edit_mode</i>
-                    Editar
+                  <button type="submit" class="btn sm waves-effect waves-light " (click)="edit(patient._id)">
+                    Editar <i class="material-icons" >edit_mode</i>
                   </button>
                 </th>
               </tr>

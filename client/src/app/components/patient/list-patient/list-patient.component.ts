@@ -33,5 +33,4 @@ export class ListPatientComponent implements OnInit {
       {queryParams: {id: id}});
   }
 
-
 }
