@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {PatientService} from '../../../services/patient.service';
+import {SocialInsuranceService} from '../../../services/socialInsurance.service';
 import {Patient} from '../../../models/patient';
+import {PatientSocialInsurance} from '../../../models/patientSocialInsurance';
 import {Address} from '../../../models/Address';
 import {Phone} from '../../../models/Phone';
 import {SocialInsurance} from '../../../models/SocialInsurance';
@@ -10,23 +12,24 @@ import {SocialInsurance} from '../../../models/SocialInsurance';
   selector: 'app-add-patient',
   templateUrl: './add-patient.component.html',
   providers: [
-    PatientService
+    PatientService,
+    SocialInsuranceService
   ]
 })
 
 export class AddPatientComponent implements OnInit {
   message : string;
   patient : any;
+  socialInsurances : any;
   phone : Phone;
   phones : Phone[];
   address : Address;
-  socialInsurance : SocialInsurance;
-  socialInsurances : SocialInsurance[];
+  socialInsurance : PatientSocialInsurance;
 
-  constructor(private _patientService: PatientService, private _router: Router, private _activatedRoute: ActivatedRoute) {
+  constructor(private _patientService: PatientService, private _socialInsuranceService: SocialInsuranceService,
+              private _router: Router, private _activatedRoute: ActivatedRoute) {
     this.message = null;
     this.phones = new Array();
-    this.socialInsurances = new Array();
     this.patient = new Patient();
     /*--------------------------------------------
         PHONE
@@ -45,10 +48,9 @@ export class AddPatientComponent implements OnInit {
     /*--------------------------------------------
      SOCIAL INSURANCE
     --------------------------------------------*/
-    this.socialInsurance = new SocialInsurance();
-    this.socialInsurance.name = "Swiss Medical";
-    this.socialInsurance.contact = '123456';
-    this.socialInsurance.email = 'swiss.medical@sw.com';
+    this.socialInsurances = new Array();
+    this.socialInsurance = new PatientSocialInsurance();
+    this.patient.socialInsurance = this.socialInsurance;
   }
 
   ngOnInit() {
@@ -61,6 +63,7 @@ export class AddPatientComponent implements OnInit {
     if(id){
       this.getPatients(id)
     }
+    this.getSocialInsurances();
   }
 
   onSubmit() {
@@ -68,8 +71,7 @@ export class AddPatientComponent implements OnInit {
     this.phones.push(this.phone);
     this.patient.phones = this.phones;
     this.patient.address = this.address;
-    this.socialInsurances.push(this.socialInsurance);
-    this.patient.socialInsurance = this.socialInsurances;
+    this.patient.socialInsurance = this.socialInsurance;
     this.savePatient();
   }
 
@@ -77,11 +79,20 @@ export class AddPatientComponent implements OnInit {
     this._patientService.savePatient(this.patient).subscribe(data => {
       this._router.navigate(['/list-patients']);
     });
+    //console.log(this.patient);
   }
 
   getPatients(id){
     this._patientService.searchPatient(id).subscribe(response => {
       this.patient = response;
+      //this.socialInsurance = this.patient.socialInsurance;
+      console.log(this.patient.socialInsurance);
+    });
+  }
+
+  getSocialInsurances(){
+    this._socialInsuranceService.getSocialInsurance().subscribe(response => {
+      this.socialInsurances = response;
     });
   }
 
