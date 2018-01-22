@@ -10,6 +10,7 @@ import { APP_ROUTING } from "./app.routes";
 import { HomeComponent } from './components/home/home.component';
 /*DOCTOR*/
 import { AddDoctorComponent } from './components/doctor/add-doctor/add-doctor.component';
+import { EditDoctorComponent } from './components/doctor/edit-doctor/edit-doctor.component';
 import { ListDoctorComponent } from './components/doctor/list-doctor/list-doctor.component';
 /*PATIENT*/
 import { AddPatientComponent }  from './components/patient/add-patient/add-patient.component';
@@ -28,6 +29,7 @@ import { MorphsearchComponent } from './components/shared/morphsearch/morphsearc
     DoctorScheduleComponent,
     HomeComponent,
     AddDoctorComponent,
+    EditDoctorComponent,
     ListDoctorComponent,
     AddPatientComponent,
     EditPatientComponent,

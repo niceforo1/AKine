@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
-import {PatientService} from '../../../services/patient.service';
-import {SocialInsuranceService} from '../../../services/socialInsurance.service';
-import {Patient} from '../../../models/patient';
-import {PatientSocialInsurance} from '../../../models/patientSocialInsurance';
-import {Address} from '../../../models/Address';
-import {Phone} from '../../../models/Phone';
-import {SocialInsurance} from '../../../models/SocialInsurance';
+import { Router, ActivatedRoute } from '@angular/router';
+/* Services */
+import { PatientService } from '../../../services/patient.service';
+import { SocialInsuranceService } from '../../../services/socialInsurance.service';
+/* Models */
+import { Patient } from '../../../models/patient';
+import { PatientSocialInsurance } from '../../../models/patientSocialInsurance';
+import { Address } from '../../../models/Address';
+import { Phone } from '../../../models/Phone';
 
 @Component({
   selector: 'app-edit-patient',
@@ -30,8 +31,8 @@ export class EditPatientComponent implements OnInit {
 
   constructor(private _patientService: PatientService, private _socialInsuranceService: SocialInsuranceService,
               private _router: Router, private _activatedRoute: ActivatedRoute) {
-    this.action = "Editar";
-    this.title = "Editar paciente";
+    this.action = 'Editar';
+    this.title = 'Editar Paciente';
     this.message = null;
     this.phones = new Array();
     this.patient = new Patient();
@@ -41,15 +42,15 @@ export class EditPatientComponent implements OnInit {
     --------------------------------------------*/
     this.phone = new Phone();
     this.phone.main = true;
-    this.phone.type = "Celular";
+    this.phone.type = 'Celular';
     /*--------------------------------------------
      ADDRESS
      --------------------------------------------*/
     this.address = new Address();
-    this.address.city = "Cordoba";
-    this.address.state = "Cordoba";
-    this.address.neighborhood = "Centro";
-    this.address.zip = "5000";
+    this.address.city = 'Cordoba';
+    this.address.state = 'Cordoba';
+    this.address.neighborhood = 'Centro';
+    this.address.zip = '5000';
     /*--------------------------------------------
      SOCIAL INSURANCE
     --------------------------------------------*/

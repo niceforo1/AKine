@@ -2,11 +2,8 @@
   <link href="assets/plugins/waitme/waitMe.css" rel="stylesheet"/>
   <link href="assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet"/>
   <link href="assets/plugins/dropzone/dropzone.css" rel="stylesheet">
-  <link href="assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
-        rel="stylesheet"/>
-
+  <link href="assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet"/>
 </head>
-
 
 <!-- Overlay For Sidebars -->
 <div class="overlay"></div>
@@ -19,7 +16,7 @@
         {{message}}
     </div>
     <div class="block-header">
-      <h2>Agregar Doctor</h2>
+      <h2>{{title}}</h2>
     </div>
     <div class="row clearfix">
       <div class="col-lg-12 col-md-12 col-sm-12">
@@ -36,6 +33,7 @@
                                       aria-expanded="false"><i class="material-icons">add_alert</i>Obras Sociales</a></li>
               -->
             </ul>
+            <!--
             <ul class="header-dropdown m-r--5">
               <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
                                       role="button" aria-haspopup="true" aria-expanded="false"><i
@@ -47,6 +45,7 @@
                 </ul>
               </li>
             </ul>
+            -->
           </div>
           <!-- Tab panes -->
           <div class="tab-content">
@@ -132,7 +131,7 @@
                     </div>
                   </div>
                   <div class="col-sm-12">
-                    <button type="submit" class="btn btn-raised g-bg-cyan" (click)="onSubmit()">Guardar</button>
+                    <button type="submit" class="btn btn-raised g-bg-cyan" (click)="onSubmit()">{{action}}</button>
                     <button type="submit" class="btn btn-raised">Cancelar</button>
                   </div>
                 </div>

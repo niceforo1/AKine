@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
-import {ProfessionalService} from '../../../services/professional.service';
-import {Professional} from '../../../models/Professional';
-import {Address} from '../../../models/Address';
-import {Phone} from '../../../models/Phone';
-import {SocialInsurance} from '../../../models/SocialInsurance';
+import { Router, ActivatedRoute } from '@angular/router';
+/* Services */
+import { ProfessionalService} from '../../../services/professional.service';
+/* Models */
+import { Professional } from '../../../models/Professional';
+import { Address } from '../../../models/Address';
+import { Phone } from '../../../models/Phone';
+import { SocialInsurance } from '../../../models/SocialInsurance';
 
 @Component({
   selector: 'app-add-doctor',

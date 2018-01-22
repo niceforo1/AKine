@@ -1,7 +1,7 @@
 import {Address} from './Address';
 import {Phone} from './Phone';
-import {SocialInsurance} from './SocialInsurance';
 import {PatientSocialInsurance} from './patientSocialInsurance';
+
 export class Patient {
   public _id: string;
   public id: string;
