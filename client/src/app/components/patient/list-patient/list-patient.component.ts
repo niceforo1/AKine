@@ -23,13 +23,12 @@ export class ListPatientComponent implements OnInit {
 
   getPatients(){
     this._patientService.getPatient().subscribe(response => {
-      console.log(response);
       this.patients = response;
     });
   }
 
   edit(id){
-    this.router.navigate(['/add-patient'],
+    this.router.navigate(['/edit-patient'],
       {queryParams: {id: id}});
   }
 

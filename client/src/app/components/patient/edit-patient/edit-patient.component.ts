@@ -9,17 +9,15 @@ import {Phone} from '../../../models/Phone';
 import {SocialInsurance} from '../../../models/SocialInsurance';
 
 @Component({
-  selector: 'app-add-patient',
-  templateUrl: './add-patient.component.html',
+  selector: 'app-edit-patient',
+  templateUrl: '../add-patient/add-patient.component.html',
   providers: [
     PatientService,
     SocialInsuranceService
   ]
 })
 
-export class AddPatientComponent implements OnInit {
-  action : string;
-  title : string;
+export class EditPatientComponent implements OnInit {
   message : string;
   patient : any;
   socialInsurances : any;
@@ -27,17 +25,19 @@ export class AddPatientComponent implements OnInit {
   phones : Phone[];
   address : Address;
   socialInsurance : PatientSocialInsurance;
+  action : string;
+  title: string;
 
   constructor(private _patientService: PatientService, private _socialInsuranceService: SocialInsuranceService,
               private _router: Router, private _activatedRoute: ActivatedRoute) {
-    this.action = "Guardar";
-    this.title = "Agregar paciente";
+    this.action = "Editar";
+    this.title = "Editar paciente";
     this.message = null;
     this.phones = new Array();
     this.patient = new Patient();
     this.patient.socialInsurance = new PatientSocialInsurance();
     /*--------------------------------------------
-        PHONE
+    PHONE
     --------------------------------------------*/
     this.phone = new Phone();
     this.phone.main = true;
@@ -58,6 +58,15 @@ export class AddPatientComponent implements OnInit {
   }
 
   ngOnInit() {
+    let id;
+    this._activatedRoute
+      .queryParams
+      .subscribe(params => {
+        id = params['id'];
+      });
+    if(id){
+      this.getPatients(id)
+    }
     this.getSocialInsurances();
   }
 
@@ -70,8 +79,14 @@ export class AddPatientComponent implements OnInit {
   }
 
   savePatient() {
-    this._patientService.savePatient(this.patient).subscribe(data => {
+    this._patientService.updatePatient(this.patient, this.patient._id).subscribe(data => {
       this._router.navigate(['/list-patients']);
+    });
+  }
+
+  getPatients(id){
+    this._patientService.searchPatient(id).subscribe(response => {
+      this.patient = response;
     });
   }
 

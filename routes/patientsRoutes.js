@@ -2,7 +2,7 @@ module.exports = (app, mongoose) => {
   const Patient = mongoose.model('patient');
 
   app.get('/api/patients', async (req, res) => {
-    const patient = await Patient.find();
+    const patient = await Patient.find().populate({path:'socialInsurance._id', model:'socialInsurance'});
     try {
       res.send(patient);
     } catch (err) {
@@ -75,11 +75,17 @@ module.exports = (app, mongoose) => {
 
   app.put('/api/patients/:id', async (req, res) => {
     try {
-      const pac = await Patient.update({ _id: req.params.id }, req.body);
+      const pac = await Patient.findByIdAndUpdate(req.params.id, req.body,async (err, pat) =>{
+        if(err){
+          console.log(err);
+        }else{
+          console.log(pat);
+        }
+      });
       //MODIFICAR ESTO PARA RETORNAR LO QUE REALMENTE SUCEDIO
       //HAY QUE VERIFICAR EL RETORNO PARA COMPROBAR QUE REALMENTE HAYA ACTUALIZADO ALGO
-      const patient = await Paciente.find();
-      res.send(patient);
+      //const patient = await Paciente.find();
+      //res.send(patient);
     } catch (err) {
       res.status(500).send(err);
     }

@@ -13,6 +13,7 @@ import { AddDoctorComponent } from './components/doctor/add-doctor/add-doctor.co
 import { ListDoctorComponent } from './components/doctor/list-doctor/list-doctor.component';
 /*PATIENT*/
 import { AddPatientComponent }  from './components/patient/add-patient/add-patient.component';
+import { EditPatientComponent }  from "./components/patient/edit-patient/edit-patient.component";
 import { ListPatientComponent } from './components/patient/list-patient/list-patient.component';
 /*Moduls*/
 import { TopBarComponent } from './components/shared/top-bar/top-bar.component';
@@ -29,6 +30,7 @@ import { MorphsearchComponent } from './components/shared/morphsearch/morphsearc
     AddDoctorComponent,
     ListDoctorComponent,
     AddPatientComponent,
+    EditPatientComponent,
     ListPatientComponent,
     TopBarComponent,
     SideBarComponent,

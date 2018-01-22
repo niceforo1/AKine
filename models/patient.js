@@ -23,13 +23,12 @@ const patientSchema = new Schema({
   },
   address: addressSchema,
   phones: [phoneSchema],
-  socialInsurance: [{
-      socialInsurance: {
+  socialInsurance: {
+      _id: {
           type: mongoose.Schema.Types.ObjectId,
           ref: 'socialInsuranceSchema'},
       number: String,
-  }]
+  }
 });
 
 mongoose.model('patient', patientSchema);
-
