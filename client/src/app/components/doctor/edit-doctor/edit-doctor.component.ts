@@ -16,17 +16,18 @@ import { Phone } from '../../../models/Phone';
 })
 
 export class EditDoctorComponent implements OnInit {
+  action : string;
+  title: string;
   message : string;
   professional : any;
   phone : Phone;
   phones : Phone[];
   address : Address;
-  action : string;
-  title: string;
+
 
   constructor(private _professionalService: ProfessionalService, private _router: Router, private _activatedRoute: ActivatedRoute) {
     this.action = "Editar";
-    this.title = "Editar Doctor";
+    this.title = "Editar Licenciado";
     this.message = null;
     this.phones = new Array();
     this.professional = new Professional();

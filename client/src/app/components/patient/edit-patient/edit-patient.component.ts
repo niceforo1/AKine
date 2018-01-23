@@ -19,6 +19,8 @@ import { Phone } from '../../../models/Phone';
 })
 
 export class EditPatientComponent implements OnInit {
+  action : string;
+  title: string;
   message : string;
   patient : any;
   socialInsurances : any;
@@ -26,8 +28,7 @@ export class EditPatientComponent implements OnInit {
   phones : Phone[];
   address : Address;
   socialInsurance : PatientSocialInsurance;
-  action : string;
-  title: string;
+
 
   constructor(private _patientService: PatientService, private _socialInsuranceService: SocialInsuranceService,
               private _router: Router, private _activatedRoute: ActivatedRoute) {

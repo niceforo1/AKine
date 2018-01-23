@@ -32,7 +32,7 @@ export class AddPatientComponent implements OnInit {
   constructor(private _patientService: PatientService, private _socialInsuranceService: SocialInsuranceService,
               private _router: Router, private _activatedRoute: ActivatedRoute) {
     this.action = 'Guardar';
-    this.title = 'Agregar paciente';
+    this.title = 'Agregar Paciente';
     this.message = null;
     this.phones = new Array();
     this.patient = new Patient();

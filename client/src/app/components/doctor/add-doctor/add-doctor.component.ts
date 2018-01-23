@@ -17,6 +17,8 @@ import { SocialInsurance } from '../../../models/SocialInsurance';
 })
 
 export class AddDoctorComponent implements OnInit {
+  action : string;
+  title: string;
   message : string;
   professional : any;
   phone : Phone;
@@ -25,7 +27,10 @@ export class AddDoctorComponent implements OnInit {
   socialInsurance : SocialInsurance;
   socialInsurances : SocialInsurance[];
 
+
   constructor(private _professionalService: ProfessionalService, private _router: Router, private _activatedRoute: ActivatedRoute) {
+    this.action = "Guardar";
+    this.title = "Agregar Licenciado";
     this.message = null;
     this.phones = new Array();
     this.socialInsurances = new Array();
