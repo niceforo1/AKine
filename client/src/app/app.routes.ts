@@ -14,7 +14,7 @@ import { ListPatientComponent } from './components/patient/list-patient/list-pat
 const APP_ROUTES: Routes = [
   { path: 'doctor', component: DoctorScheduleComponent },
   { path: 'add-doctor', component: AddDoctorComponent },
-  { path: 'edit-doctors', component: EditDoctorComponent },
+  { path: 'edit-doctors/:id', component: EditDoctorComponent },
   { path: 'list-doctors', component: ListDoctorComponent },
   { path: 'add-patient', component: AddPatientComponent },
   { path: 'edit-patient', component: EditPatientComponent },

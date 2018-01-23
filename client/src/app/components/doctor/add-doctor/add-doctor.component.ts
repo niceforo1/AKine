@@ -22,7 +22,6 @@ export class AddDoctorComponent implements OnInit {
   message : string;
   professional : any;
   phone : Phone;
-  //phones : Phone[];
   address : Address;
   socialInsurance : SocialInsurance;
   socialInsurances : SocialInsurance[];
@@ -66,9 +65,6 @@ export class AddDoctorComponent implements OnInit {
 
   onSubmit() {
     this.message = null;
-    //this.phones.push(this.phone);
-    //this.professional.phones = this.phones;
-    //this.professional.address = this.address;
     this.socialInsurances.push(this.socialInsurance);
     this.professional.socialInsurance = this.socialInsurances;
     this.saveProfessional();

@@ -29,6 +29,7 @@ module.exports = (app, mongoose) => {
   });
 
   app.post('/api/professionals', async (req, res) => {
+    console.log('putisimo')
     try {
       const {
         id,
@@ -78,7 +79,7 @@ module.exports = (app, mongoose) => {
 
   app.put('/api/professionals/:id', async (req, res) => {
     try {
-      const pac = await Professional.update({ _id: req.params.id }, req.body);
+      const pac = await Professional.findOneAndUpdate({ _id: req.params.id }, req.body);
       const professional = await Professional.find();
       res.send(professional);
     } catch (err) {

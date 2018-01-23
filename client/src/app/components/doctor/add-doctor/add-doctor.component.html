@@ -8,7 +8,6 @@
 <!-- Overlay For Sidebars -->
 <div class="overlay"></div>
 <!-- #END# Overlay For Sidebars -->
-
 <section class="content">
   <div class="container-fluid">
     <div class="alert alert-danger alert-dismissible" role="alert" *ngIf="message">
@@ -18,286 +17,116 @@
     <div class="block-header">
       <h2>{{title}}</h2>
     </div>
-    <div class="row clearfix">
-      <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="card">
-          <div class="header">
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs">
-              <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#general_icon_title"
-                                      aria-expanded="false"><i class="material-icons">person</i>General</a></li>
-              <!--
-              <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#phones_icon_title"
-                                      aria-expanded="false"><i class="material-icons">phone</i>Telefonos</a></li>
-              <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#insuranse_social_icon_title"
-                                      aria-expanded="false"><i class="material-icons">add_alert</i>Obras Sociales</a></li>
-              -->
-            </ul>
-            <!--
-            <ul class="header-dropdown m-r--5">
-              <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
-                                      role="button" aria-haspopup="true" aria-expanded="false"><i
-                class="zmdi zmdi-more-vert"></i></a>
-                <ul class="dropdown-menu pull-right">
-                  <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-                  <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-                  <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-                </ul>
-              </li>
-            </ul>
-            -->
-          </div>
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane in active" id="general_icon_title">
-              <div class="body">
-                <div class="row clearfix">
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Nombres" [(ngModel)]="professional.name">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Apellidos"
-                               [(ngModel)]="professional.lastName">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row clearfix">
-                  <div class="col-sm-3">
-                    <div class="form-group">
-                      <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Documento" [(ngModel)]="professional.id">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="form-group">
-                      <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Teléfono" [(ngModel)]="professional.phones.number">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="form-group">
-                      <div class="form-line">
-                        <input type="date" class="form-control" placeholder="Fecha de Nac.(DD/MM/AAAA)"
-                        [(ngModel)]="professional.birthDate">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="form-group drop-custum">
-                      <select class="form-control show-tick"  [(ngModel)]="professional.gender">
-                        <option value="">-- Genero --</option>
-                        <option value="m">Masculino</option>
-                        <option value="f">Femenino</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="row clearfix">
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Domicilio" [(ngModel)]="professional.address.street">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Email" [(ngModel)]="professional.email">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Licencia" [(ngModel)]="professional.license">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Especialidad" [(ngModel)]="professional.specialities">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-12">
-                    <button type="submit" class="btn btn-raised g-bg-cyan" (click)="onSubmit()">{{action}}</button>
-                    <button type="submit" class="btn btn-raised">Cancelar</button>
-                  </div>
-                </div>
-              </div>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="card">
+            <div class="header">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#general_icon_title"
+                                        aria-expanded="false"><i class="material-icons">person</i>General</a></li>          
+              </ul>          
             </div>
-            <!--
-            <div role="tabpanel" class="tab-pane" id="phones_icon_title">
-              <div class="body table-responsive">
-                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                      <div id="DataTables_Table_0_filter" class="dataTables_filter">
-                        <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="DataTables_Table_0"></label>
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane in active" id="general_icon_title">
+                <div class="body">
+                  <div class="row clearfix">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input #name="ngModel" type="text" name="name" class="form-control" placeholder="Nombres" [(ngModel)]="professional.name" required>
+                          <span *ngIf="!name.valid && name.touched" class="text-danger">El nombre es obligatorio</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input #lastName="ngModel" type="text" name="lastName" class="form-control" placeholder="Apellidos" required
+                                 [(ngModel)]="professional.lastName">
+                          <span *ngIf="!lastName.valid && lastName.touched" class="text-danger">El apellido es obligatorio</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <table class="table table-bordered table-striped table-hover js-basic-example dataTable"
-                             id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
-                        <thead>
-                        <tr role="row">
-                          <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                              colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending"
-                              style="width: 146px;">Name
-                          </th>
-                          <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                              aria-label="Position: activate to sort column ascending" style="width: 242px;">Position
-                          </th>
-                          <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                              aria-label="Office: activate to sort column ascending" style="width: 108px;">Office
-                          </th>
-                          <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                              aria-label="Age: activate to sort column ascending" style="width: 51px;">Age
-                          </th>
-                          <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                              aria-label="Start date: activate to sort column ascending" style="width: 102px;">Start
-                            date
-                          </th>
-                          <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                              aria-label="Salary: activate to sort column ascending" style="width: 84px;">Salary
-                          </th>
-                        </tr>
-                        </thead>
-                        <tfoot>
-                        <tr>
-                          <th rowspan="1" colspan="1">Name</th>
-                          <th rowspan="1" colspan="1">Position</th>
-                          <th rowspan="1" colspan="1">Office</th>
-                          <th rowspan="1" colspan="1">Age</th>
-                          <th rowspan="1" colspan="1">Start date</th>
-                          <th rowspan="1" colspan="1">Salary</th>
-                        </tr>
-                        </tfoot>
-                        <tbody>
-                        <tr role="row" class="odd">
-                          <td class="sorting_1">Airi Satou</td>
-                          <td>Accountant</td>
-                          <td>Tokyo</td>
-                          <td>33</td>
-                          <td>2008/11/28</td>
-                          <td>$162,700</td>
-                        </tr>
-                        <tr role="row" class="even">
-                          <td class="sorting_1">Angelica Ramos</td>
-                          <td>Chief Executive Officer (CEO)</td>
-                          <td>London</td>
-                          <td>47</td>
-                          <td>2009/10/09</td>
-                          <td>$1,200,000</td>
-                        </tr>
-                        <tr role="row" class="odd">
-                          <td class="sorting_1">Ashton Cox</td>
-                          <td>Junior Technical Author</td>
-                          <td>San Francisco</td>
-                          <td>66</td>
-                          <td>2009/01/12</td>
-                          <td>$86,000</td>
-                        </tr>
-                        <tr role="row" class="even">
-                          <td class="sorting_1">Bradley Greer</td>
-                          <td>Software Engineer</td>
-                          <td>London</td>
-                          <td>41</td>
-                          <td>2012/10/13</td>
-                          <td>$132,000</td>
-                        </tr>
-                        <tr role="row" class="odd">
-                          <td class="sorting_1">Brenden Wagner</td>
-                          <td>Software Engineer</td>
-                          <td>San Francisco</td>
-                          <td>28</td>
-                          <td>2011/06/07</td>
-                          <td>$206,850</td>
-                        </tr>
-                        <tr role="row" class="even">
-                          <td class="sorting_1">Brielle Williamson</td>
-                          <td>Integration Specialist</td>
-                          <td>New York</td>
-                          <td>61</td>
-                          <td>2012/12/02</td>
-                          <td>$372,000</td>
-                        </tr>
-                        <tr role="row" class="odd">
-                          <td class="sorting_1">Bruno Nash</td>
-                          <td>Software Engineer</td>
-                          <td>London</td>
-                          <td>38</td>
-                          <td>2011/05/03</td>
-                          <td>$163,500</td>
-                      </table>
+                  <div class="row clearfix">
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input #id="ngModel" type="text" name="id" class="form-control" placeholder="Documento" [(ngModel)]="professional.id" required>
+                          <span *ngIf="!id.valid && id.touched" class="text-danger">El documento es obligatorio</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input  #phonesNumber="ngModel" type="text" name="phonesNumber" type="text" class="form-control" placeholder="Teléfono" [(ngModel)]="professional.phones.number" required>
+                          <span *ngIf="!phonesNumber.valid && phonesNumber.touched" class="text-danger">El teléfono es obligatorio</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input #birthDate="ngModel" name="birthDate" type="date" class="form-control" placeholder="Fecha de Nac.(DD/MM/AAAA)"
+                                [(ngModel)]="professional.birthDate" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group drop-custum">
+                        <select #gender="ngModel" name="gender" class="form-control show-tick"  [(ngModel)]="professional.gender">
+                          <option value="">-- Genero --</option>
+                          <option value="m">Masculino</option>
+                          <option value="f">Femenino</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-sm-12 col-md-5">
-                      <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing
-                        1 to 10 of 57 entries
+                  <div class="row clearfix">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input #addressStreet="ngModel" name="addressStreet" type="text" class="form-control" placeholder="Domicilio" [(ngModel)]="professional.address.street">
+                        </div>
                       </div>
                     </div>
-                    <div class="col-sm-12 col-md-7">
-                      <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
-                        <ul class="pagination">
-                          <li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous"><a
-                            href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-                          </li>
-                          <li class="paginate_button page-item active"><a href="#" aria-controls="DataTables_Table_0"
-                                                                          data-dt-idx="1" tabindex="0"
-                                                                          class="page-link">1</a></li>
-                          <li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0"
-                                                                    data-dt-idx="2" tabindex="0" class="page-link">2</a>
-                          </li>
-                          <li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0"
-                                                                    data-dt-idx="3" tabindex="0" class="page-link">3</a>
-                          </li>
-                          <li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0"
-                                                                    data-dt-idx="4" tabindex="0" class="page-link">4</a>
-                          </li>
-                          <li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0"
-                                                                    data-dt-idx="5" tabindex="0" class="page-link">5</a>
-                          </li>
-                          <li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0"
-                                                                    data-dt-idx="6" tabindex="0" class="page-link">6</a>
-                          </li>
-                          <li class="paginate_button page-item next" id="DataTables_Table_0_next"><a href="#"
-                                                                                                     aria-controls="DataTables_Table_0"
-                                                                                                     data-dt-idx="7"
-                                                                                                     tabindex="0"
-                                                                                                     class="page-link">Next</a>
-                          </li>
-                        </ul>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input #email="ngModel" name="email" type="text" class="form-control" placeholder="Email" [(ngModel)]="professional.email">
+                        </div>
                       </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input #professionalLicense="ngModel" name="professionalLicense" type="text" class="form-control" placeholder="Licencia" [(ngModel)]="professional.license">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input #professionalSpecialities="ngModel" name="professionalSpecialities" type="text" class="form-control" placeholder="Especialidad" [(ngModel)]="professional.specialities">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12"> 
+                      <button type="submit" class="btn btn-raised bg-cyan waves-effect" type="submit" [disabled]="!form.form.valid">{{action}}</button>
+                      <button type="submit" class="btn btn-raised">Cancelar</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div role="tabpanel" class="tab-pane" id="insuranse_social_icon_title">
-              <div class="body">
-
-              </div>
-            </div>
-            -->
           </div>
         </div>
       </div>
-    </div>
+    </form>    
   </div>
 </section>
 

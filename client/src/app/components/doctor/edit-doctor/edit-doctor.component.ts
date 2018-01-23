@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 /* Services */
 import { ProfessionalService } from '../../../services/professional.service';
 /* Models */
@@ -31,52 +31,63 @@ export class EditDoctorComponent implements OnInit {
     this.message = null;
     //this.phones = new Array();
     this.professional = new Professional();
+    
     /*--------------------------------------------
     PHONE
     --------------------------------------------*/
+    
+    
     this.professional.phones = new Phone();
-    this.professional.phone.main = true;
-    this.professional.phone.type = 'Celular';
+    /*this.professional.phone.main = true;
+    this.professional.phone.type = 'Celular';*/
+    
+    
     /*--------------------------------------------
      ADDRESS
      --------------------------------------------*/
+    
     this.professional.address = new Address();
-    this.professional.address.city = 'Cordoba';
+    /*this.professional.address.city = 'Cordoba';
     this.professional.address.state = 'Cordoba';
     this.professional.address.neighborhood = 'Centro';
     this.professional.address.zip = '5000';
+    */
+    
   }
 
   ngOnInit() {
-    let id;
-    this._activatedRoute
-      .queryParams
-      .subscribe(params => {
-        id = params['id'];
-      });
-    if(id){
-      this.getProfessionals(id)
-    }
+    this.getProfessional();
   }
 
+  
+  getProfessional(){
+    this._activatedRoute.params.forEach((params:Params)=>{
+      let id = params['id'];
+      this._professionalService.searchProfessional(id).subscribe(response => {
+        this.professional = response;
+      });
+    });
+  }
+
+  
   onSubmit() {
     this.message = null;
-    //this.phones.push(this.phone);
-    //this.professional.phones = this.phones;
-    //this.professional.address = this.address;
     this.saveProfessional();
   }
 
   saveProfessional() {
     this._professionalService.updateProfessional(this.professional, this.professional._id).subscribe(data => {
-      this._router.navigate(['/list-doctors']);
+      setTimeout(()=>{
+          this._router.navigate(['/list-doctors']);
+        }, 3000);
     });
   }
+  
 
-  getProfessionals(id){
+  /*getProfessionals(id){
     this._professionalService.searchProfessional(id).subscribe(response => {
       this.professional = response;
     });
-  }
+  }*/
 
 }
