@@ -25,8 +25,8 @@
               <!-- Nav tabs -->
               <ul class="nav nav-tabs">
                 <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#general_icon_title"
-                                        aria-expanded="false"><i class="material-icons">person</i>General</a></li>          
-              </ul>          
+                                        aria-expanded="false"><i class="material-icons">person</i>General</a></li>
+              </ul>
             </div>
             <!-- Tab panes -->
             <div class="tab-content">
@@ -36,18 +36,21 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <div class="form-line">
-                          <input #name="ngModel" type="text" name="name" class="form-control" placeholder="Nombres" [(ngModel)]="professional.name" required>
-                          <span *ngIf="!name.valid && name.touched" class="text-danger">El nombre es obligatorio</span>
+                          <label>Nombres(*):</label>
+                          <input #name="ngModel" type="text" name="name" class="form-control"
+                                 [(ngModel)]="professional.name" required>
                         </div>
+                        <span *ngIf="!name.valid && name.touched" class="text-danger">El nombre es obligatorio</span>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <div class="form-line">
-                          <input #lastName="ngModel" type="text" name="lastName" class="form-control" placeholder="Apellidos" required
+                          <label>Apellidos(*):</label>
+                          <input #lastName="ngModel" type="text" name="lastName" class="form-control" required
                                  [(ngModel)]="professional.lastName">
-                          <span *ngIf="!lastName.valid && lastName.touched" class="text-danger">El apellido es obligatorio</span>
                         </div>
+                        <span *ngIf="!lastName.valid && lastName.touched" class="text-danger">El apellido es obligatorio</span>
                       </div>
                     </div>
                   </div>
@@ -55,29 +58,34 @@
                     <div class="col-sm-3">
                       <div class="form-group">
                         <div class="form-line">
-                          <input #id="ngModel" type="text" name="id" class="form-control" placeholder="Documento" [(ngModel)]="professional.id" required>
-                          <span *ngIf="!id.valid && id.touched" class="text-danger">El documento es obligatorio</span>
+                          <label>Documento(*):</label>
+                          <input #id="ngModel" type="text" name="id" class="form-control" [(ngModel)]="professional.id" required>
                         </div>
+                        <span *ngIf="!id.valid && id.touched" class="text-danger">El documento es obligatorio</span>
                       </div>
                     </div>
                     <div class="col-sm-3">
                       <div class="form-group">
                         <div class="form-line">
-                          <input  #phonesNumber="ngModel" type="text" name="phonesNumber" type="text" class="form-control" placeholder="Teléfono" [(ngModel)]="professional.phones.number" required>
-                          <span *ngIf="!phonesNumber.valid && phonesNumber.touched" class="text-danger">El teléfono es obligatorio</span>
+                          <label>Teléfono(*):</label>
+                          <input  #phonesNumber="ngModel" type="text" name="phonesNumber" type="text" class="form-control"
+                                  [(ngModel)]="professional.phones.number" required>
                         </div>
+                        <span *ngIf="!phonesNumber.valid && phonesNumber.touched" class="text-danger">El teléfono es obligatorio</span>
                       </div>
                     </div>
                     <div class="col-sm-3">
                       <div class="form-group">
                         <div class="form-line">
-                          <input #birthDate="ngModel" name="birthDate" type="date" class="form-control" placeholder="Fecha de Nac.(DD/MM/AAAA)"
+                          <label>Fecha de Nacimiento:</label>
+                          <input #birthDate="ngModel" name="birthDate" type="date" class="form-control" placeholder="DD/MM/AAAA"
                                 [(ngModel)]="professional.birthDate">
                         </div>
                       </div>
                     </div>
                     <div class="col-sm-3">
                       <div class="form-group drop-custum">
+                        <label>Genero:</label>
                         <select #gender="ngModel" name="gender" class="form-control show-tick"  [(ngModel)]="professional.gender">
                           <option value="">-- Genero --</option>
                           <option value="m">Masculino</option>
@@ -90,32 +98,36 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <div class="form-line">
-                          <input #addressStreet="ngModel" name="addressStreet" type="text" class="form-control" placeholder="Domicilio" [(ngModel)]="professional.address.street">
+                          <label>Domicilio:</label>
+                          <input #addressStreet="ngModel" name="addressStreet" type="text" class="form-control" [(ngModel)]="professional.address.street">
                         </div>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <div class="form-line">
-                          <input #email="ngModel" name="email" type="text" class="form-control" placeholder="Email" [(ngModel)]="professional.email">
+                          <label>Email:</label>
+                          <input #email="ngModel" name="email" type="text" class="form-control" [(ngModel)]="professional.email">
                         </div>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <div class="form-line">
-                          <input #professionalLicense="ngModel" name="professionalLicense" type="text" class="form-control" placeholder="Licencia" [(ngModel)]="professional.license">
+                          <label>Licencia:</label>
+                          <input #professionalLicense="ngModel" name="professionalLicense" type="text" class="form-control" [(ngModel)]="professional.license">
                         </div>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <div class="form-line">
-                          <input #professionalSpecialities="ngModel" name="professionalSpecialities" type="text" class="form-control" placeholder="Especialidad" [(ngModel)]="professional.specialities">
+                          <label>Especialidad:</label>
+                          <input #professionalSpecialities="ngModel" name="professionalSpecialities" type="text" class="form-control" [(ngModel)]="professional.specialities">
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-12"> 
+                    <div class="col-sm-12">
                       <button type="submit" class="btn btn-raised bg-cyan waves-effect" type="submit" [disabled]="!form.form.valid">{{action}}</button>
                       <button type="submit" class="btn btn-raised">Cancelar</button>
                     </div>
@@ -126,7 +138,7 @@
           </div>
         </div>
       </div>
-    </form>    
+    </form>
   </div>
 </section>
 
