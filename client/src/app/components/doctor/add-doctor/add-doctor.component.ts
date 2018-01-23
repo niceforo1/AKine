@@ -52,15 +52,7 @@ export class AddDoctorComponent implements OnInit {
   }
 
   ngOnInit() {
-    let id;
-    this._activatedRoute
-       .queryParams
-       .subscribe(params => {
-           id = params['id'];
-       });
-    if(id){
-        this.getProfessional(id)
-    }
+
   }
 
   onSubmit() {
@@ -81,11 +73,4 @@ export class AddDoctorComponent implements OnInit {
       }
     })
   }
-
-  getProfessional(id){
-    this._professionalService.searchProfessional(id).subscribe(response => {
-      this.professional = response;
-    });
-  }
-
 }

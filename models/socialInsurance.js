@@ -12,5 +12,3 @@ const socialInsuranceSchema = new Schema({
 });
 
 mongoose.model('socialInsurance', socialInsuranceSchema);
-
-

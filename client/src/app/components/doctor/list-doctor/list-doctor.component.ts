@@ -27,12 +27,4 @@ export class ListDoctorComponent implements OnInit {
       this.professionals = response;
     });
   }
-  /*
-  edit(id){
-    this.router.navigate(['/add-doctor'],
-         {queryParams: {id: id}});
-  }
-  */
-
-
 }

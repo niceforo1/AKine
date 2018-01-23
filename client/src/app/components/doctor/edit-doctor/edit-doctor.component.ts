@@ -21,45 +21,28 @@ export class EditDoctorComponent implements OnInit {
   message : string;
   professional : any;
   phone : Phone;
-  //phones : Phone[];
-  //address : Address;
-
-
   constructor(private _professionalService: ProfessionalService, private _router: Router, private _activatedRoute: ActivatedRoute) {
     this.action = "Editar";
     this.title = "Editar Licenciado";
     this.message = null;
     //this.phones = new Array();
     this.professional = new Professional();
-    
     /*--------------------------------------------
     PHONE
     --------------------------------------------*/
-    
-    
     this.professional.phones = new Phone();
-    /*this.professional.phone.main = true;
-    this.professional.phone.type = 'Celular';*/
-    
-    
     /*--------------------------------------------
      ADDRESS
      --------------------------------------------*/
-    
+
     this.professional.address = new Address();
-    /*this.professional.address.city = 'Cordoba';
-    this.professional.address.state = 'Cordoba';
-    this.professional.address.neighborhood = 'Centro';
-    this.professional.address.zip = '5000';
-    */
-    
   }
 
   ngOnInit() {
     this.getProfessional();
   }
 
-  
+
   getProfessional(){
     this._activatedRoute.params.forEach((params:Params)=>{
       let id = params['id'];
@@ -69,7 +52,7 @@ export class EditDoctorComponent implements OnInit {
     });
   }
 
-  
+
   onSubmit() {
     this.message = null;
     this.saveProfessional();
@@ -82,12 +65,4 @@ export class EditDoctorComponent implements OnInit {
         }, 3000);
     });
   }
-  
-
-  /*getProfessionals(id){
-    this._professionalService.searchProfessional(id).subscribe(response => {
-      this.professional = response;
-    });
-  }*/
-
 }

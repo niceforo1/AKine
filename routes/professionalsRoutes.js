@@ -21,7 +21,9 @@ module.exports = (app, mongoose) => {
 
   app.get('/api/professionalsDoc/:document', async (req, res) => {
     try {
-      const professional = await Professional.findOne({id: req.params.document});
+      const professional = await Professional.findOne({
+        id: req.params.document
+      });
       res.send(professional);
     } catch (err) {
       res.status(500).send(err);
@@ -29,7 +31,6 @@ module.exports = (app, mongoose) => {
   });
 
   app.post('/api/professionals', async (req, res) => {
-    console.log('putisimo')
     try {
       const {
         id,
@@ -61,7 +62,7 @@ module.exports = (app, mongoose) => {
         socialInsurance
       });
 
-    await professional.save();
+      await professional.save();
       res.send(professional);
     } catch (err) {
       res.status(500).send(err);
@@ -79,7 +80,10 @@ module.exports = (app, mongoose) => {
 
   app.put('/api/professionals/:id', async (req, res) => {
     try {
-      const pac = await Professional.findOneAndUpdate({ _id: req.params.id }, req.body);
+      const pac = await Professional.findOneAndUpdate(
+        { _id: req.params.id },
+        req.body
+      );
       const professional = await Professional.find();
       res.send(professional);
     } catch (err) {

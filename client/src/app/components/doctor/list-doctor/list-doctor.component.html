@@ -34,7 +34,7 @@
                 <th>{{professional.lastName}}</th>
                 <th>{{professional.license}}</th>
                 <th>{{professional.id}}</th>
-                <th>{{professional.birthDate}}</th>
+                <th>{{professional.birthDate | date: 'dd/MM/yyyy'}}</th>
                 <th>
                   <a href="#" class="btn btn-raised g-bg-cyan" [routerLink]="['/edit-doctors', professional._id]">
                     <i class="material-icons" >edit_mode</i>

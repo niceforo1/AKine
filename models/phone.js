@@ -8,4 +8,3 @@ const phoneSchema = new Schema({
 });
 
 module.exports = phoneSchema;
-

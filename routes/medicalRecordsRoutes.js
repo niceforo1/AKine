@@ -60,7 +60,9 @@ module.exports = (app, mongoose) => {
 
   app.delete('/api/medicalRecords/:id', async (req, res) => {
     try {
-      const medicalRecord = await MedicalRecord.findByIdAndRemove(req.params.id);
+      const medicalRecord = await MedicalRecord.findByIdAndRemove(
+        req.params.id
+      );
       res.send(medicalRecord);
     } catch (err) {
       res.status(500).send(err);

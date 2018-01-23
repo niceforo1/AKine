@@ -9,7 +9,7 @@ const patientSchema = new Schema({
   name: String,
   lastName: String,
   birthDate: Date,
-  gender: { type: String, enum: ['m', 'f','o'] },
+  gender: { type: String, enum: ['m', 'f', 'o'] },
   email: String,
   job: String,
   picture: String,
@@ -24,10 +24,11 @@ const patientSchema = new Schema({
   address: addressSchema,
   phones: phoneSchema,
   socialInsurance: {
-      _id: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'socialInsuranceSchema'},
-      number: String,
+    _id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'socialInsuranceSchema'
+    },
+    number: String
   }
 });
 

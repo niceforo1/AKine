@@ -16,12 +16,15 @@ const professionalSchema = new Schema({
   specialities: String,
   address: addressSchema,
   phones: phoneSchema,
-  socialInsurance: [{
+  socialInsurance: [
+    {
       socialInsurance: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'socialInsuranceSchema'},
-      number: String,
-  }]
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'socialInsuranceSchema'
+      },
+      number: String
+    }
+  ]
 });
 
 mongoose.model('professional', professionalSchema);

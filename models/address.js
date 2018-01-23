@@ -10,4 +10,3 @@ const addressSchema = new Schema({
 });
 
 module.exports = addressSchema;
-

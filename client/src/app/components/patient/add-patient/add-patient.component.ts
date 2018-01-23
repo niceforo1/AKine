@@ -24,9 +24,6 @@ export class AddPatientComponent implements OnInit {
   message : string;
   patient : any;
   socialInsurances : any;
-  //phone : Phone;
-  //phones : Phone[];
-  //address : Address;
   socialInsurance : PatientSocialInsurance;
 
   constructor(private _patientService: PatientService, private _socialInsuranceService: SocialInsuranceService,
@@ -64,9 +61,6 @@ export class AddPatientComponent implements OnInit {
 
   onSubmit() {
     this.message = null;
-    //this.phones.push(this.phone);
-    //this.patient.phones = this.phones;
-    //this.patient.address = this.address;
     this.savePatient();
   }
 

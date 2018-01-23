@@ -15,19 +15,13 @@ module.exports = (app, mongoose) => {
       const socialInsurance = await SocialInsurance.findById(req.params.id);
       res.send(socialInsurance);
     } catch (err) {
-        res.status(500).send(err);
+      res.status(500).send(err);
     }
   });
 
   app.post('/api/socialInsurances', async (req, res) => {
     try {
-      const {
-        name,
-        contact,
-        email,
-        address,
-        phones
-      } = req.body;
+      const { name, contact, email, address, phones } = req.body;
 
       const socialInsurance = await new SocialInsurance({
         name,
@@ -46,12 +40,12 @@ module.exports = (app, mongoose) => {
 
   app.delete('/api/socialInsurances/:id', async (req, res) => {
     try {
-      const socialInsurance = await SocialInsurance.findByIdAndRemove(req.params.id);
+      const socialInsurance = await SocialInsurance.findByIdAndRemove(
+        req.params.id
+      );
       res.send(socialInsurance);
     } catch (err) {
       res.status(500).send(err);
     }
   });
-
-
 };
