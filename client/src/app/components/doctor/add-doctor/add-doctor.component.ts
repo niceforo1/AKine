@@ -22,7 +22,7 @@ export class AddDoctorComponent implements OnInit {
   message : string;
   professional : any;
   phone : Phone;
-  phones : Phone[];
+  //phones : Phone[];
   address : Address;
   socialInsurance : SocialInsurance;
   socialInsurances : SocialInsurance[];
@@ -32,21 +32,24 @@ export class AddDoctorComponent implements OnInit {
     this.action = "Guardar";
     this.title = "Agregar Licenciado";
     this.message = null;
-    this.phones = new Array();
+    //this.phones = new Array();
     this.socialInsurances = new Array();
     this.professional = new Professional();
-    this.phone = new Phone();
-    this.phone.main = true;
-    this.phone.type = "Celular";
-    this.address = new Address();
-    this.address.city = "Cordoba";
-    this.address.state = "Cordoba";
-    this.address.neighborhood = "Centro";
-    this.address.zip = "5000";
-    this.socialInsurance = new SocialInsurance();
-    this.socialInsurance.name = "Swiss Medical";
-    this.socialInsurance.contact = '123456';
-    this.socialInsurance.email = 'swiss.medical@sw.com';
+    /*PHONE*/
+    this.professional.phones = new Phone();
+    this.professional.phones.main = true;
+    this.professional.phones.type = "Celular";
+    /*ADDRESS*/
+    this.professional.address = new Address();
+    this.professional.address.city = "Cordoba";
+    this.professional.address.state = "Cordoba";
+    this.professional.address.neighborhood = "Centro";
+    this.professional.address.zip = "5000";
+    /*SOCIAL INSURANCE*/
+    this.professional.socialInsurance = new SocialInsurance();
+    this.professional.socialInsurance.name = "Swiss Medical";
+    this.professional.socialInsurance.contact = '123456';
+    this.professional.socialInsurance.email = 'swiss.medical@sw.com';
   }
 
   ngOnInit() {
@@ -63,9 +66,9 @@ export class AddDoctorComponent implements OnInit {
 
   onSubmit() {
     this.message = null;
-    this.phones.push(this.phone);
-    this.professional.phones = this.phones;
-    this.professional.address = this.address;
+    //this.phones.push(this.phone);
+    //this.professional.phones = this.phones;
+    //this.professional.address = this.address;
     this.socialInsurances.push(this.socialInsurance);
     this.professional.socialInsurance = this.socialInsurances;
     this.saveProfessional();

@@ -21,30 +21,30 @@ export class EditDoctorComponent implements OnInit {
   message : string;
   professional : any;
   phone : Phone;
-  phones : Phone[];
-  address : Address;
+  //phones : Phone[];
+  //address : Address;
 
 
   constructor(private _professionalService: ProfessionalService, private _router: Router, private _activatedRoute: ActivatedRoute) {
     this.action = "Editar";
     this.title = "Editar Licenciado";
     this.message = null;
-    this.phones = new Array();
+    //this.phones = new Array();
     this.professional = new Professional();
     /*--------------------------------------------
     PHONE
     --------------------------------------------*/
-    this.phone = new Phone();
-    this.phone.main = true;
-    this.phone.type = 'Celular';
+    this.professional.phones = new Phone();
+    this.professional.phone.main = true;
+    this.professional.phone.type = 'Celular';
     /*--------------------------------------------
      ADDRESS
      --------------------------------------------*/
-    this.address = new Address();
-    this.address.city = 'Cordoba';
-    this.address.state = 'Cordoba';
-    this.address.neighborhood = 'Centro';
-    this.address.zip = '5000';
+    this.professional.address = new Address();
+    this.professional.address.city = 'Cordoba';
+    this.professional.address.state = 'Cordoba';
+    this.professional.address.neighborhood = 'Centro';
+    this.professional.address.zip = '5000';
   }
 
   ngOnInit() {
@@ -61,9 +61,9 @@ export class EditDoctorComponent implements OnInit {
 
   onSubmit() {
     this.message = null;
-    this.phones.push(this.phone);
-    this.professional.phones = this.phones;
-    this.professional.address = this.address;
+    //this.phones.push(this.phone);
+    //this.professional.phones = this.phones;
+    //this.professional.address = this.address;
     this.saveProfessional();
   }
 

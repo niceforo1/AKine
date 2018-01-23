@@ -22,7 +22,7 @@ export class Patient {
     habits: string
   };
   public address: Address;
-  public phones : Phone[];
+  public phones : Phone;
   public socialInsurance : PatientSocialInsurance;
   constructor() {
   }

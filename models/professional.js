@@ -15,7 +15,7 @@ const professionalSchema = new Schema({
   license: String,
   specialities: String,
   address: addressSchema,
-  phones: [phoneSchema],
+  phones: phoneSchema,
   socialInsurance: [{
       socialInsurance: {
           type: mongoose.Schema.Types.ObjectId,
@@ -25,4 +25,3 @@ const professionalSchema = new Schema({
 });
 
 mongoose.model('professional', professionalSchema);
-

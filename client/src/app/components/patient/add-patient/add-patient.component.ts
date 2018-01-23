@@ -24,9 +24,9 @@ export class AddPatientComponent implements OnInit {
   message : string;
   patient : any;
   socialInsurances : any;
-  phone : Phone;
-  phones : Phone[];
-  address : Address;
+  //phone : Phone;
+  //phones : Phone[];
+  //address : Address;
   socialInsurance : PatientSocialInsurance;
 
   constructor(private _patientService: PatientService, private _socialInsuranceService: SocialInsuranceService,
@@ -34,23 +34,23 @@ export class AddPatientComponent implements OnInit {
     this.action = 'Guardar';
     this.title = 'Agregar Paciente';
     this.message = null;
-    this.phones = new Array();
+    //this.phones = new Array();
     this.patient = new Patient();
     this.patient.socialInsurance = new PatientSocialInsurance();
     /*--------------------------------------------
         PHONE
     --------------------------------------------*/
-    this.phone = new Phone();
-    this.phone.main = true;
-    this.phone.type = 'Celular';
+    this.patient.phones = new Phone();
+    this.patient.phones.main = true;
+    this.patient.phones.type = 'Celular';
     /*--------------------------------------------
      ADDRESS
      --------------------------------------------*/
-    this.address = new Address();
-    this.address.city = 'Cordoba';
-    this.address.state = 'Cordoba';
-    this.address.neighborhood = 'Centro';
-    this.address.zip = '5000';
+    this.patient.address = new Address();
+    this.patient.address.city = 'Cordoba';
+    this.patient.address.state = 'Cordoba';
+    this.patient.address.neighborhood = 'Centro';
+    this.patient.address.zip = '5000';
     /*--------------------------------------------
      SOCIAL INSURANCE
     --------------------------------------------*/
@@ -64,9 +64,9 @@ export class AddPatientComponent implements OnInit {
 
   onSubmit() {
     this.message = null;
-    this.phones.push(this.phone);
-    this.patient.phones = this.phones;
-    this.patient.address = this.address;
+    //this.phones.push(this.phone);
+    //this.patient.phones = this.phones;
+    //this.patient.address = this.address;
     this.savePatient();
   }
 

@@ -22,7 +22,7 @@ const patientSchema = new Schema({
     habits: String
   },
   address: addressSchema,
-  phones: [phoneSchema],
+  phones: phoneSchema,
   socialInsurance: {
       _id: {
           type: mongoose.Schema.Types.ObjectId,
