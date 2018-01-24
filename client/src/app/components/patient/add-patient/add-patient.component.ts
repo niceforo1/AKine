@@ -22,6 +22,7 @@ export class AddPatientComponent implements OnInit {
   action : string;
   title : string;
   message : string;
+  messageClass : string;
   patient : any;
   socialInsurances : any;
   socialInsurance : PatientSocialInsurance;
@@ -31,6 +32,7 @@ export class AddPatientComponent implements OnInit {
     this.action = 'Guardar';
     this.title = 'Agregar Paciente';
     this.message = null;
+    this.messageClass = null;
     //this.phones = new Array();
     this.patient = new Patient();
     this.patient.socialInsurance = new PatientSocialInsurance();
@@ -65,15 +67,26 @@ export class AddPatientComponent implements OnInit {
   }
 
   savePatient() {
-    this._patientService.savePatient(this.patient).subscribe(data => {
-      this._router.navigate(['/list-patients']);
-    });
+    this._patientService.getPatientByDoc(this.patient.id).subscribe(data => {
+      if(data){
+        this.messageClass = 'alert alert-danger alert-dismissible';
+        this.message = 'Ya se encuentra registrado un paciente con el documento ingresado.'
+      }else{
+        this._patientService.savePatient(this.patient).subscribe(data => {
+          this.messageClass = 'alert alert-success alert-dismissible';
+          this.message = 'El paciente fue guardado correctamente.';
+          setTimeout(()=>{
+            this._router.navigate(['/list-patients']);
+          }, 2000);
+        })
+      }
+    })
   }
 
   getSocialInsurances(){
-    this._socialInsuranceService.getSocialInsurance().subscribe(response => {
-      this.socialInsurances = response;
-    });
+        this._socialInsuranceService.getSocialInsurance().subscribe(response => {
+          this.socialInsurances = response;
+        });
   }
 
 }

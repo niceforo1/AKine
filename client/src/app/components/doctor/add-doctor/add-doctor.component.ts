@@ -19,6 +19,7 @@ import { SocialInsurance } from '../../../models/SocialInsurance';
 export class AddDoctorComponent implements OnInit {
   action : string;
   title: string;
+  messageClass : string;
   message : string;
   professional : any;
   phone : Phone;
@@ -31,6 +32,7 @@ export class AddDoctorComponent implements OnInit {
     this.action = "Guardar";
     this.title = "Agregar Licenciado";
     this.message = null;
+    this.messageClass = null;
     //this.phones = new Array();
     this.socialInsurances = new Array();
     this.professional = new Professional();
@@ -65,10 +67,15 @@ export class AddDoctorComponent implements OnInit {
   saveProfessional() {
     this._professionalService.getProfessionalByDoc(this.professional.id).subscribe(data => {
       if(data){
+        this.messageClass = 'alert alert-danger alert-dismissible';
         this.message = 'Ya se encuentra registrado un doctor con el documento ingresado.'
       }else{
         this._professionalService.saveProfessional(this.professional).subscribe(data => {
-          this._router.navigate(['/list-doctors']);
+          this.messageClass = 'alert alert-success alert-dismissible';
+          this.message = 'El profesional fue guardado correctamente.';
+          setTimeout(()=>{
+              this._router.navigate(['/list-doctors']);
+            }, 2000);
         });
       }
     })

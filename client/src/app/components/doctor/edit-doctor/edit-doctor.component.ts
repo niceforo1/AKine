@@ -19,12 +19,14 @@ export class EditDoctorComponent implements OnInit {
   action : string;
   title: string;
   message : string;
+  messageClass : string;
   professional : any;
   phone : Phone;
   constructor(private _professionalService: ProfessionalService, private _router: Router, private _activatedRoute: ActivatedRoute) {
     this.action = "Editar";
     this.title = "Editar Licenciado";
     this.message = null;
+    this.messageClass = null;
     //this.phones = new Array();
     this.professional = new Professional();
     /*--------------------------------------------
@@ -60,9 +62,11 @@ export class EditDoctorComponent implements OnInit {
 
   saveProfessional() {
     this._professionalService.updateProfessional(this.professional, this.professional._id).subscribe(data => {
+      this.messageClass = 'alert alert-success alert-dismissible';
+      this.message = 'El profesional fue guardado correctamente.';
       setTimeout(()=>{
           this._router.navigate(['/list-doctors']);
-        }, 3000);
+        }, 2000);
     });
   }
 }

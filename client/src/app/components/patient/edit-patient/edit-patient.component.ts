@@ -22,6 +22,7 @@ export class EditPatientComponent implements OnInit {
   action : string;
   title: string;
   message : string;
+  messageClass : string;
   patient : any;
   socialInsurances : any;
   //phone : Phone;
@@ -35,7 +36,7 @@ export class EditPatientComponent implements OnInit {
     this.action = 'Editar';
     this.title = 'Editar Paciente';
     this.message = null;
-    //this.phones = new Array();
+    this.messageClass = null;
     this.patient = new Patient();
     this.patient.socialInsurance = new PatientSocialInsurance();
     /*--------------------------------------------
@@ -74,15 +75,16 @@ export class EditPatientComponent implements OnInit {
 
   onSubmit() {
     this.message = null;
-    //this.phones.push(this.phone);
-    //this.patient.phones = this.phones;
-    //this.patient.address = this.address;
     this.savePatient();
   }
 
   savePatient() {
     this._patientService.updatePatient(this.patient, this.patient._id).subscribe(data => {
-      this._router.navigate(['/list-patients']);
+      this.messageClass = 'alert alert-success alert-dismissible';
+      this.message = 'El paciente fue guardado correctamente.';
+      setTimeout(()=>{
+          this._router.navigate(['/list-patients']);
+        }, 2000);
     });
   }
 

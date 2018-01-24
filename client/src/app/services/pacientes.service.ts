@@ -26,4 +26,5 @@ export class PacientesService {
   actualizarPaciente(paciente, id) {
     return this._http.put(`${this.urlPrincipal}/${id}`,paciente);
   }
+  
 }

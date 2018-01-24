@@ -27,4 +27,8 @@ export class PatientService {
   updatePatient(patient, id) {
     return this._http.put(`${this.urlMain}/${id}`, patient);
   }
+
+  getPatientByDoc(doc: string){
+    return this._http.get(`${this.urlMain}Doc/${doc}`);
+  }
 }

@@ -22,6 +22,17 @@ module.exports = (app, mongoose) => {
     }
   });
 
+  app.get('/api/patientsDoc/:document', async (req, res) => {
+    try {
+      const patient = await Patient.findOne({
+        id: req.params.document
+      });
+      res.send(patient);
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  });
+
   app.post('/api/patients', async (req, res) => {
     try {
       const {
@@ -78,21 +89,12 @@ module.exports = (app, mongoose) => {
 
   app.put('/api/patients/:id', async (req, res) => {
     try {
-      const pac = await Patient.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        async (err, pat) => {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log(pat);
-          }
-        }
+      const pac = await Patient.findOneAndUpdate(
+        { _id: req.params.id },
+        req.body
       );
-      //MODIFICAR ESTO PARA RETORNAR LO QUE REALMENTE SUCEDIO
-      //HAY QUE VERIFICAR EL RETORNO PARA COMPROBAR QUE REALMENTE HAYA ACTUALIZADO ALGO
-      //const patient = await Paciente.find();
-      //res.send(patient);
+      const patient = await Patient.find();
+      res.send(patient);
     } catch (err) {
       res.status(500).send(err);
     }
