@@ -27,16 +27,8 @@ export class EditDoctorComponent implements OnInit {
     this.title = "Editar Licenciado";
     this.message = null;
     this.messageClass = null;
-    //this.phones = new Array();
     this.professional = new Professional();
-    /*--------------------------------------------
-    PHONE
-    --------------------------------------------*/
     this.professional.phones = new Phone();
-    /*--------------------------------------------
-     ADDRESS
-     --------------------------------------------*/
-
     this.professional.address = new Address();
   }
 

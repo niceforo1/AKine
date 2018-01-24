@@ -8,6 +8,7 @@
 <!-- Overlay For Sidebars -->
 <div class="overlay"></div>
 <!-- #END# Overlay For Sidebars -->
+
 <section class="content">
   <div class="container-fluid">
     <div [ngClass]="messageClass" role="alert" *ngIf="message">
@@ -111,6 +112,8 @@
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div class="row clearfix">
                     <div class="col-sm-6">
                       <div class="form-group">
                         <div class="form-line">
@@ -127,6 +130,8 @@
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div class="row clearfix">
                     <div class="col-sm-12">
                       <button type="submit" class="btn btn-raised bg-cyan waves-effect" [disabled]="!form.form.valid">{{action}}</button>
                       <button class="btn btn-raised" [routerLink]="['/list-doctors']">Cancelar</button>

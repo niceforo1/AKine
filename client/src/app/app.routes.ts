@@ -5,7 +5,6 @@ import { HomeComponent } from './components/home/home.component';
 import { AddDoctorComponent } from './components/doctor/add-doctor/add-doctor.component';
 import { EditDoctorComponent }  from './components/doctor/edit-doctor/edit-doctor.component';
 import { ListDoctorComponent} from './components/doctor/list-doctor/list-doctor.component';
-
 /*PATIENT*/
 import { AddPatientComponent }  from './components/patient/add-patient/add-patient.component';
 import { EditPatientComponent }  from './components/patient/edit-patient/edit-patient.component';
@@ -17,7 +16,7 @@ const APP_ROUTES: Routes = [
   { path: 'edit-doctors/:id', component: EditDoctorComponent },
   { path: 'list-doctors', component: ListDoctorComponent },
   { path: 'add-patient', component: AddPatientComponent },
-  { path: 'edit-patient', component: EditPatientComponent },
+  { path: 'edit-patient/:id', component: EditPatientComponent },
   { path: 'list-patients', component: ListPatientComponent },
   { path: '**', pathMatch: 'full', component: HomeComponent }
 ];

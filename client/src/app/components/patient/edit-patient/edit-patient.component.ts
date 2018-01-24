@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 /* Services */
 import {PatientService} from '../../../services/patient.service';
 import {SocialInsuranceService} from '../../../services/socialInsurance.service';
@@ -25,9 +25,6 @@ export class EditPatientComponent implements OnInit {
   messageClass: string;
   patient: any;
   socialInsurances: any;
-  //phone : Phone;
-  //phones : Phone[];
-  //address : Address;
   socialInsurance: PatientSocialInsurance;
 
 
@@ -39,37 +36,14 @@ export class EditPatientComponent implements OnInit {
     this.messageClass = null;
     this.patient = new Patient();
     this.patient.socialInsurance = new PatientSocialInsurance();
-    /*--------------------------------------------
-    PHONE
-    --------------------------------------------*/
     this.patient.phones = new Phone();
-    this.patient.phones.main = true;
-    this.patient.phones.type = 'Celular';
-    /*--------------------------------------------
-     ADDRESS
-     --------------------------------------------*/
     this.patient.address = new Address();
-    this.patient.address.city = 'Cordoba';
-    this.patient.address.state = 'Cordoba';
-    this.patient.address.neighborhood = 'Centro';
-    this.patient.address.zip = '5000';
-    /*--------------------------------------------
-     SOCIAL INSURANCE
-    --------------------------------------------*/
     this.socialInsurances = new Array();
     this.socialInsurance = new PatientSocialInsurance();
   }
 
   ngOnInit() {
-    let id;
-    this._activatedRoute
-      .queryParams
-      .subscribe(params => {
-        id = params['id'];
-      });
-    if (id) {
-      this.getPatients(id);
-    }
+    this.getPatients()
     this.getSocialInsurances();
   }
 
@@ -91,12 +65,15 @@ export class EditPatientComponent implements OnInit {
     catch (e){}
   }
 
-  getPatients(id) {
-    try {
+  getPatients(id){
+try {
+    this._activatedRoute.params.forEach((params:Params)=>{
+      let id = params['id'];
       this._patientService.searchPatient(id).subscribe(response => {
         this.patient = response;
       });
-    }
+    });
+}
     catch (e) {
     }
     ;

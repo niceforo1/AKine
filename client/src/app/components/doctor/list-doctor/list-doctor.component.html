@@ -1,5 +1,12 @@
 <head>
   <link href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <style>
+    .valign-center {
+      display: inline-flex;
+      vertical-align: middle;
+      align-items: center;
+    }
+  </style>
 </head>
 
 
@@ -20,20 +27,26 @@
               <thead>
               <tr>
                 <th>Nombre</th>
-                <th>Apellido</th>
+                <th>Contacto</th>
                 <th>Matricula</th>
-                <th>DNI</th>
-                <th>Fecha de nacimiento</th>
+                <th>Fecha de Nacimiento</th>
                 <th></th>
               </tr>
               </thead>
 
               <tbody>
               <tr *ngFor="let professional of professionals">
-                <th>{{professional.name}}</th>
-                <th>{{professional.lastName}}</th>
+                <th>
+                  {{professional.lastName}}, {{professional.name}}
+                  <br>
+                  DNI: {{professional.id}}
+                </th>
+                <th>
+                  <i class="material-icons small valign-center" style="font-size:16px;">phone</i>:  {{professional.id}}
+                  <br>
+                  <i class="material-icons small valign-center" style="font-size:16px;">mail_outline</i>:  {{professional.email}}
+                </th>
                 <th>{{professional.license}}</th>
-                <th>{{professional.id}}</th>
                 <th>{{professional.birthDate | date: 'dd/MM/yyyy'}}</th>
                 <th>
                   <button type="button" class="btn btn-raised btn-circle waves-effect waves-circle waves-float bg-cyan" [routerLink]="['/edit-doctors', professional._id]">

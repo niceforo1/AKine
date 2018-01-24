@@ -20,8 +20,8 @@ import {tryCatch} from 'rxjs/util/tryCatch';
 export class AddDoctorComponent implements OnInit {
   action : string;
   title: string;
-  messageClass : string;
   message : string;
+  messageClass : string;
   professional : any;
   phone : Phone;
   address : Address;
@@ -29,7 +29,8 @@ export class AddDoctorComponent implements OnInit {
   socialInsurances : SocialInsurance[];
 
 
-  constructor(private _professionalService: ProfessionalService, private _router: Router, private _activatedRoute: ActivatedRoute) {
+  constructor(private _professionalService: ProfessionalService,
+              private _router: Router, private _activatedRoute: ActivatedRoute) {
     this.action = "Guardar";
     this.title = "Agregar Licenciado";
     this.message = null;
@@ -55,7 +56,6 @@ export class AddDoctorComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   onSubmit() {

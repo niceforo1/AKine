@@ -18,7 +18,8 @@
     <div class="block-header">
       <h2>{{title}}</h2>
     </div>
-    <div class="row clearfix">
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <div class="row clearfix">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="card">
           <div class="header">
@@ -26,8 +27,6 @@
             <ul class="nav nav-tabs">
               <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#general_icon_title"
                                       aria-expanded="false"><i class="material-icons">person</i>General</a></li>
-              <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#additional_information_icon_title"
-                                      aria-expanded="false"><i class="material-icons">import_contacts</i> Informacion</a></li>
             </ul>
           </div>
           <!-- Tab panes -->
@@ -38,17 +37,21 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <div class="form-line">
-                        <label>Nombre(*):</label>
-                        <input type="text" class="form-control" [(ngModel)]="patient.name">
+                        <label>Nombres(*):</label>
+                        <input #name="ngModel" type="text" name="name" class="form-control"
+                               [(ngModel)]="patient.name" required>
                       </div>
+                      <span *ngIf="!name.valid && name.touched" class="text-danger">El nombre es obligatorio</span>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <div class="form-line">
-                        <label>Apellido(*):</label>
-                        <input type="text" class="form-control"  [(ngModel)]="patient.lastName">
+                        <label>Apellidos(*):</label>
+                        <input #lastName="ngModel" type="text" name="lastName" class="form-control" required
+                               [(ngModel)]="patient.lastName">
                       </div>
+                      <span *ngIf="!lastName.valid && lastName.touched" class="text-danger">El apellido es obligatorio</span>
                     </div>
                   </div>
                 </div>
@@ -57,23 +60,26 @@
                     <div class="form-group">
                       <div class="form-line">
                         <label>Documento(*):</label>
-                        <input type="text" class="form-control"  [(ngModel)]="patient.id">
+                        <input #id="ngModel" type="text" name="id" class="form-control" [(ngModel)]="patient.id" required>
                       </div>
+                      <span *ngIf="!id.valid && id.touched" class="text-danger">El documento es obligatorio</span>
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="form-group">
                       <div class="form-line">
                         <label>Teléfono(*):</label>
-                        <input type="text" class="form-control"  [(ngModel)]="patient.phones.number">
+                        <input  #phonesNumber="ngModel" type="text" name="phonesNumber" type="text" class="form-control"
+                                [(ngModel)]="patient.phones.number" required>
                       </div>
+                      <span *ngIf="!phonesNumber.valid && phonesNumber.touched" class="text-danger">El teléfono es obligatorio</span>
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="form-group">
                       <div class="form-line">
                         <label>Fecha de Nacimiento:</label>
-                        <input type="date" class="form-control" placeholder="DD/MM/AAAA"
+                        <input #birthDate="ngModel" name="birthDate" type="date" class="form-control" placeholder="DD/MM/AAAA"
                                [(ngModel)]="patient.birthDate">
                       </div>
                     </div>
@@ -81,7 +87,7 @@
                   <div class="col-sm-3">
                     <div class="form-group drop-custum">
                       <label>Genero:</label>
-                      <select class="form-control show-tick"  [(ngModel)]="patient.gender">
+                      <select #gender="ngModel" name="gender" class="form-control show-tick"  [(ngModel)]="patient.gender">
                         <option value="">-- Genero --</option>
                         <option value="m">Masculino</option>
                         <option value="f">Femenino</option>
@@ -94,7 +100,7 @@
                     <div class="form-group">
                       <div class="form-line">
                         <label>Domicilio:</label>
-                        <input type="text" class="form-control" [(ngModel)]="patient.address.street">
+                        <input #addressStreet="ngModel" name="addressStreet" type="text" class="form-control" [(ngModel)]="patient.address.street">
                       </div>
                     </div>
                   </div>
@@ -102,7 +108,7 @@
                     <div class="form-group">
                       <div class="form-line">
                         <label>Email:</label>
-                        <input type="email" class="form-control" [(ngModel)]="patient.email">
+                        <input #email="ngModel" name="email" type="email" class="form-control" [(ngModel)]="patient.email">
                       </div>
                     </div>
                   </div>
@@ -134,73 +140,8 @@
                 </div>
                 <div class="row clearfix">
                   <div class="col-sm-12">
-                    <button type="submit" class="btn btn-raised g-bg-cyan" (click)="onSubmit()">{{action}}</button>
+                    <button type="submit" class="btn btn-raised bg-cyan waves-effect" type="submit" [disabled]="!form.form.valid">{{action}}</button>
                     <button class="btn btn-raised" [routerLink]="['/list-patients']">Cancelar</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="additional_information_icon_title">
-              <div class="body">
-                <div class="row clearfix">
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="header">
-                      <h2 class="card-inside-title">Historial</h2>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <div class="form-line">
-                          <input type="text" class="form-control" placeholder="Profesión" [(ngModel)]="patient.job">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <div class="form-line">
-                          <input type="text" class="form-control" placeholder="Medicación Actual" [(ngModel)]="patient.currentMedication">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <div class="form-line">
-                          <input type="text" class="form-control" placeholder="Adicciones" [(ngModel)]="patient.addictions">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <div class="form-line">
-                          <input type="text" class="form-control" placeholder="Patologías" [(ngModel)]="patient.pathologies">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="header">
-                      <h2 class="card-inside-title">Antecedentes</h2>
-                    </div>
-                      <div class="col-sm-12">
-                        <div class="form-group">
-                          <div class="form-line">
-                            <input type="text" class="form-control" placeholder="Profesión" [(ngModel)]="patient.personal">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="form-group">
-                          <div class="form-line">
-                            <input type="text" class="form-control" placeholder="Familia" [(ngModel)]="patient.family">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="form-group">
-                          <div class="form-line">
-                            <input type="text" class="form-control" placeholder="Hábitos" [(ngModel)]="patient.habits">
-                          </div>
-                        </div>
-                      </div>
                   </div>
                 </div>
               </div>
@@ -209,6 +150,7 @@
         </div>
       </div>
     </div>
+    </form>
   </div>
 </section>
 
