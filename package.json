@@ -12,7 +12,7 @@
     "client": "ng serve --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "Gabino Santana <gsantana@dicep.com.ar> (https://www.linkedin.com/in/gabino-santana/)",
+  "author": "Carmona Carlos, Campana David, Santana Gabino, Santoro Exequiel",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.2",
