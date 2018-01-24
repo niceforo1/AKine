@@ -61,12 +61,15 @@ export class EditDoctorComponent implements OnInit {
   }
 
   saveProfessional() {
-    this._professionalService.updateProfessional(this.professional, this.professional._id).subscribe(data => {
-      this.messageClass = 'alert alert-success alert-dismissible';
-      this.message = 'El profesional fue guardado correctamente.';
-      setTimeout(()=>{
+    try {
+      this._professionalService.updateProfessional(this.professional, this.professional._id).subscribe(data => {
+        this.messageClass = 'alert alert-success alert-dismissible';
+        this.message = 'El profesional fue guardado correctamente.';
+        setTimeout(() => {
           this._router.navigate(['/list-doctors']);
         }, 2000);
-    });
+      });
+    }
+    catch (e){}
   }
 }

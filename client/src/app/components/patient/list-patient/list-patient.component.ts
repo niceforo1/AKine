@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 /* Services */
-import { PatientService } from '../../../services/patient.service';
+import {PatientService} from '../../../services/patient.service';
 
 @Component({
   selector: 'app-list-patient',
@@ -12,7 +12,7 @@ import { PatientService } from '../../../services/patient.service';
 })
 export class ListPatientComponent implements OnInit {
 
-  patient : any;
+  patient: any;
   patients: any;
 
   constructor(private _patientService: PatientService, private router: Router) {
@@ -22,15 +22,31 @@ export class ListPatientComponent implements OnInit {
   ngOnInit() {
   }
 
-  getPatients(){
-    this._patientService.getPatient().subscribe(response => {
-      this.patients = response;
-    });
+  getPatients() {
+    try {
+      this._patientService.getPatient().subscribe(response => {
+        this.patients = response;
+      });
+    }
+    catch (e) {}
   }
 
-  edit(id){
+  edit(id) {
     this.router.navigate(['/edit-patient'],
       {queryParams: {id: id}});
+  }
+
+
+  deletePatient(id){
+    try {
+      let result = confirm("¡Esta seguro que desea borrar el Paciente seleccionado?");
+      if(result) {
+        this._patientService.deletePatient(id).subscribe(response => {
+          this.patients.splice(this.patients.indexOf(response), 1);
+        });
+      }
+    }
+    catch(e){}
   }
 
 }

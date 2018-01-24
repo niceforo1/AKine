@@ -11,20 +11,36 @@ import { ProfessionalService } from '../../../services/professional.service';
   ]
 })
 export class ListDoctorComponent implements OnInit {
+
   professional : any;
   professionals: any;
 
+
   constructor(private _professionalService: ProfessionalService, private router: Router) {
     this.professionals = this.getProfessionals();
-
   }
 
   ngOnInit() {
   }
 
   getProfessionals(){
-    this._professionalService.getProfessional().subscribe(response => {
-      this.professionals = response;
-    });
+    try {
+      this._professionalService.getProfessional().subscribe(response => {
+        this.professionals = response;
+      });
+    }
+    catch(e){}
+  }
+
+  deleteProfessional(id){
+    try {
+      let result = confirm("¡Esta seguro que desea borrar el Licenciado seleccionado?");
+      if(result) {
+        this._professionalService.deleteProfessional(id).subscribe(response => {
+          this.professionals.splice(this.professionals.indexOf(response), 1);
+        });
+      }
+    }
+    catch(e){}
   }
 }

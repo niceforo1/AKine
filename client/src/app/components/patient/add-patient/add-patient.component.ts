@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
 /* Services */
-import { PatientService } from '../../../services/patient.service';
-import { SocialInsuranceService } from '../../../services/socialInsurance.service';
+import {PatientService} from '../../../services/patient.service';
+import {SocialInsuranceService} from '../../../services/socialInsurance.service';
 /* Models */
-import { Patient } from '../../../models/patient';
-import { PatientSocialInsurance } from '../../../models/patientSocialInsurance';
-import { Address } from '../../../models/Address';
-import { Phone } from '../../../models/Phone';
+import {Patient} from '../../../models/patient';
+import {PatientSocialInsurance} from '../../../models/patientSocialInsurance';
+import {Address} from '../../../models/Address';
+import {Phone} from '../../../models/Phone';
 
 @Component({
   selector: 'app-add-patient',
@@ -19,13 +19,13 @@ import { Phone } from '../../../models/Phone';
 })
 
 export class AddPatientComponent implements OnInit {
-  action : string;
-  title : string;
-  message : string;
-  messageClass : string;
-  patient : any;
-  socialInsurances : any;
-  socialInsurance : PatientSocialInsurance;
+  action: string;
+  title: string;
+  message: string;
+  messageClass: string;
+  patient: any;
+  socialInsurances: any;
+  socialInsurance: PatientSocialInsurance;
 
   constructor(private _patientService: PatientService, private _socialInsuranceService: SocialInsuranceService,
               private _router: Router, private _activatedRoute: ActivatedRoute) {
@@ -67,26 +67,34 @@ export class AddPatientComponent implements OnInit {
   }
 
   savePatient() {
-    this._patientService.getPatientByDoc(this.patient.id).subscribe(data => {
-      if(data){
-        this.messageClass = 'alert alert-danger alert-dismissible';
-        this.message = 'Ya se encuentra registrado un paciente con el documento ingresado.'
-      }else{
-        this._patientService.savePatient(this.patient).subscribe(data => {
-          this.messageClass = 'alert alert-success alert-dismissible';
-          this.message = 'El paciente fue guardado correctamente.';
-          setTimeout(()=>{
-            this._router.navigate(['/list-patients']);
-          }, 2000);
-        })
-      }
-    })
+    try {
+      this._patientService.getPatientByDoc(this.patient.id).subscribe(data => {
+        if (data) {
+          this.messageClass = 'alert alert-danger alert-dismissible';
+          this.message = 'Ya se encuentra registrado un paciente con el documento ingresado.';
+        } else {
+          this._patientService.savePatient(this.patient).subscribe(data => {
+            this.messageClass = 'alert alert-success alert-dismissible';
+            this.message = 'El paciente fue guardado correctamente.';
+            setTimeout(() => {
+              this._router.navigate(['/list-patients']);
+            }, 2000);
+          });
+        }
+      });
+    }
+    catch (e) {
+    }
   }
 
-  getSocialInsurances(){
-        this._socialInsuranceService.getSocialInsurance().subscribe(response => {
-          this.socialInsurances = response;
-        });
+  getSocialInsurances() {
+    try {
+      this._socialInsuranceService.getSocialInsurance().subscribe(response => {
+        this.socialInsurances = response;
+      });
+    }
+    catch (e) {
+    }
   }
 
 }

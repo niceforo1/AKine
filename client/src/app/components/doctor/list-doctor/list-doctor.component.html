@@ -36,10 +36,12 @@
                 <th>{{professional.id}}</th>
                 <th>{{professional.birthDate | date: 'dd/MM/yyyy'}}</th>
                 <th>
-                  <a href="#" class="btn btn-raised g-bg-cyan" [routerLink]="['/edit-doctors', professional._id]">
-                    <i class="material-icons" >edit_mode</i>
-                    Editar
-                  </a>
+                  <button type="button" class="btn btn-raised btn-circle waves-effect waves-circle waves-float bg-cyan" [routerLink]="['/edit-doctors', professional._id]">
+                    <i class="material-icons">edit</i>
+                  </button>
+                  <button type="button" class="btn btn-raised btn-circle waves-effect waves-circle waves-float bg-deep-orange" (click)="deleteProfessional(professional._id)">
+                    <i class="material-icons">delete</i>
+                  </button>
                 </th>
               </tr>
               </tbody>

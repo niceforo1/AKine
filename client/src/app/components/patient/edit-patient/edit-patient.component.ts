@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
 /* Services */
-import { PatientService } from '../../../services/patient.service';
-import { SocialInsuranceService } from '../../../services/socialInsurance.service';
+import {PatientService} from '../../../services/patient.service';
+import {SocialInsuranceService} from '../../../services/socialInsurance.service';
 /* Models */
-import { Patient } from '../../../models/patient';
-import { PatientSocialInsurance } from '../../../models/patientSocialInsurance';
-import { Address } from '../../../models/Address';
-import { Phone } from '../../../models/Phone';
+import {Patient} from '../../../models/patient';
+import {PatientSocialInsurance} from '../../../models/patientSocialInsurance';
+import {Address} from '../../../models/Address';
+import {Phone} from '../../../models/Phone';
 
 @Component({
   selector: 'app-edit-patient',
@@ -19,16 +19,16 @@ import { Phone } from '../../../models/Phone';
 })
 
 export class EditPatientComponent implements OnInit {
-  action : string;
+  action: string;
   title: string;
-  message : string;
-  messageClass : string;
-  patient : any;
-  socialInsurances : any;
+  message: string;
+  messageClass: string;
+  patient: any;
+  socialInsurances: any;
   //phone : Phone;
   //phones : Phone[];
   //address : Address;
-  socialInsurance : PatientSocialInsurance;
+  socialInsurance: PatientSocialInsurance;
 
 
   constructor(private _patientService: PatientService, private _socialInsuranceService: SocialInsuranceService,
@@ -67,8 +67,8 @@ export class EditPatientComponent implements OnInit {
       .subscribe(params => {
         id = params['id'];
       });
-    if(id){
-      this.getPatients(id)
+    if (id) {
+      this.getPatients(id);
     }
     this.getSocialInsurances();
   }
@@ -79,25 +79,36 @@ export class EditPatientComponent implements OnInit {
   }
 
   savePatient() {
-    this._patientService.updatePatient(this.patient, this.patient._id).subscribe(data => {
-      this.messageClass = 'alert alert-success alert-dismissible';
-      this.message = 'El paciente fue guardado correctamente.';
-      setTimeout(()=>{
+    try {
+      this._patientService.updatePatient(this.patient, this.patient._id).subscribe(data => {
+        this.messageClass = 'alert alert-success alert-dismissible';
+        this.message = 'El paciente fue guardado correctamente.';
+        setTimeout(() => {
           this._router.navigate(['/list-patients']);
         }, 2000);
-    });
+      });
+    }
+    catch (e){}
   }
 
-  getPatients(id){
-    this._patientService.searchPatient(id).subscribe(response => {
-      this.patient = response;
-    });
+  getPatients(id) {
+    try {
+      this._patientService.searchPatient(id).subscribe(response => {
+        this.patient = response;
+      });
+    }
+    catch (e) {
+    }
+    ;
   }
 
-  getSocialInsurances(){
-    this._socialInsuranceService.getSocialInsurance().subscribe(response => {
-      this.socialInsurances = response;
-    });
+  getSocialInsurances() {
+    try {
+      this._socialInsuranceService.getSocialInsurance().subscribe(response => {
+        this.socialInsurances = response;
+      });
+    }
+    catch (e) {
+    }
   }
-
 }
