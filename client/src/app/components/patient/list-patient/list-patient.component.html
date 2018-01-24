@@ -34,27 +34,27 @@
               </thead>
 
               <tbody>
-              <tr *ngFor="let patient of patients">
-                <th>
-                  {{patient.lastName}}, {{patient.name}}
-                  <br>
-                  DNI: {{patient.id}}
-                </th>
-                <th>
-                  <i class="material-icons small valign-center" style="font-size:16px;">phone</i>:  {{patient.id}}
-                  <br>
-                  <i class="material-icons small valign-center" style="font-size:16px;">mail_outline</i>:  {{patient.email}}
-                </th>
-                <th>{{patient.socialInsurances}}</th>
-                <th>
-                  <button type="button" class="btn btn-raised btn-circle waves-effect waves-circle waves-float bg-cyan" [routerLink]="['/edit-patient', patient._id]">
-                    <i class="material-icons">edit</i>
-                  </button>
-                  <button type="button" class="btn btn-raised btn-circle waves-effect waves-circle waves-float bg-deep-orange" (click)="deletePatient(patient._id)">
-                    <i class="material-icons">delete</i>
-                  </button>
-                </th>
-              </tr>
+                <tr *ngFor="let patient of patients">
+                  <th>
+                     {{patient.lastName}}, {{patient.name}}
+                     <br>
+                     DNI: {{patient.id}}
+                  </th>
+                  <th>
+                    <i class="material-icons small valign-center" style="font-size:16px;">phone</i>:  {{patient.id}}
+                    <br>
+                    <i class="material-icons small valign-center" style="font-size:16px;">mail_outline</i>:  {{patient.email}}
+                  </th>
+                  <th>{{patient.email}}</th>
+                  <th>
+                    <button type="button" class="btn btn-raised btn-circle waves-effect waves-circle waves-float bg-cyan" [routerLink]="['/edit-patient', patient._id]">
+                      <i class="material-icons">edit</i>
+                    </button>
+                    <button type="button" class="btn btn-raised btn-circle waves-effect waves-circle waves-float bg-deep-orange" (click)="deletePatient(patient._id)">
+                      <i class="material-icons">delete</i>
+                    </button>
+                  </th>
+                </tr>
               </tbody>
             </table>
           </div>

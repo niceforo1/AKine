@@ -43,8 +43,8 @@ export class EditPatientComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getPatients()
     this.getSocialInsurances();
+    this.getPatients();
   }
 
   onSubmit() {
@@ -65,18 +65,17 @@ export class EditPatientComponent implements OnInit {
     catch (e){}
   }
 
-  getPatients(id){
-try {
-    this._activatedRoute.params.forEach((params:Params)=>{
-      let id = params['id'];
-      this._patientService.searchPatient(id).subscribe(response => {
-        this.patient = response;
-      });
-    });
-}
-    catch (e) {
+  getPatients(){
+    try {
+        this._activatedRoute.params.forEach((params:Params)=>{
+          let id = params['id'];
+          this._patientService.searchPatient(id).subscribe(response => {
+            this.patient = response;
+          });
+        });
     }
-    ;
+    catch (e) {
+    };
   }
 
   getSocialInsurances() {
@@ -86,6 +85,6 @@ try {
       });
     }
     catch (e) {
-    }
+    };
   }
 }

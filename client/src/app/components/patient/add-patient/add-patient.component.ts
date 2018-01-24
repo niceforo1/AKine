@@ -84,7 +84,7 @@ export class AddPatientComponent implements OnInit {
       });
     }
     catch (e) {
-    }
+    };
   }
 
   getSocialInsurances() {
@@ -94,7 +94,7 @@ export class AddPatientComponent implements OnInit {
       });
     }
     catch (e) {
-    }
+    };
   }
 
 }

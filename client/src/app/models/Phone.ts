@@ -4,5 +4,6 @@ export class Phone {
   public number: string;
   public main: boolean;
   constructor() {
+    this.number = '';
   }
 }
