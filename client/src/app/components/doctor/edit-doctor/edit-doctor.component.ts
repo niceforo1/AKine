@@ -22,6 +22,7 @@ export class EditDoctorComponent implements OnInit {
   messageClass : string;
   professional : any;
   phone : Phone;
+  
   constructor(private _professionalService: ProfessionalService, private _router: Router, private _activatedRoute: ActivatedRoute) {
     this.action = "Editar";
     this.title = "Editar Licenciado";

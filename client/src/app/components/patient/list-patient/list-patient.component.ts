@@ -25,18 +25,11 @@ export class ListPatientComponent implements OnInit {
   getPatients() {
     try {
       this._patientService.getPatient().subscribe(response => {
-          console.log(response);
         this.patients = response;
       });
     }
     catch (e) {}
   }
-
-  edit(id) {
-    this.router.navigate(['/edit-patient'],
-      {queryParams: {id: id}});
-  }
-
 
   deletePatient(id){
     try {

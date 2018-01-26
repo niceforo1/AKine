@@ -66,22 +66,24 @@ export class AddDoctorComponent implements OnInit {
   }
 
   saveProfessional() {
-    try {
-      this._professionalService.getProfessionalByDoc(this.professional.id).subscribe(data => {
-        if (data) {
+    this._professionalService.getProfessionalByDoc(this.professional.id).subscribe(data => {
+      if (data) {
+        this.messageClass = 'alert alert-danger alert-dismissible';
+        this.message = 'Ya se encuentra registrado un doctor con el documento ingresado.'
+      } else {
+        this._professionalService.saveProfessional(this.professional).subscribe(data => {
+          this.messageClass = 'alert alert-success alert-dismissible';
+          this.message = 'El profesional fue guardado correctamente.';
+          setTimeout(() => {
+            this._router.navigate(['/list-doctors']);
+          }, 2000);
+        },
+        err => {
           this.messageClass = 'alert alert-danger alert-dismissible';
-          this.message = 'Ya se encuentra registrado un doctor con el documento ingresado.'
-        } else {
-          this._professionalService.saveProfessional(this.professional).subscribe(data => {
-            this.messageClass = 'alert alert-success alert-dismissible';
-            this.message = 'El profesional fue guardado correctamente.';
-            setTimeout(() => {
-              this._router.navigate(['/list-doctors']);
-            }, 2000);
-          });
-        }
-      })
-    }
-    catch (e){}
+          this.message = `${err.error}`
+          console.log(`${err.error}`)
+        });
+      }
+    })
   }
 }
