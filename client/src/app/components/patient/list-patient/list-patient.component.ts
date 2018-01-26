@@ -25,6 +25,7 @@ export class ListPatientComponent implements OnInit {
   getPatients() {
     try {
       this._patientService.getPatient().subscribe(response => {
+          console.log(response);
         this.patients = response;
       });
     }
@@ -41,7 +42,7 @@ export class ListPatientComponent implements OnInit {
     try {
       let result = confirm("¡Esta seguro que desea borrar el Paciente seleccionado?");
       if(result) {
-        this._patientService.deletePatient(id).subscribe(response => {
+        this._patientService.deletePatient(id).subscribe(response => {        
           this.patients.splice(this.patients.indexOf(response), 1);
         });
       }

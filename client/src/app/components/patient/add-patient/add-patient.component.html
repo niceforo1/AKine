@@ -125,7 +125,7 @@
                         <label>Obra Social:</label>
                         <select class="form-control show-tick"  name="socialInsuranceId" [(ngModel)]="patient.socialInsurance._id">
                             <option value="">-- Obra social --</option>
-                            <option  *ngFor="let socialInsurance of socialInsurances" value="{{socialInsurance._id}}">{{socialInsurance.name}}</option>
+                            <option *ngFor="let socialInsurance of socialInsurances" value="{{socialInsurance._id}}">{{socialInsurance.name}}</option>
                         </select>
                       </div>
                   </div>
@@ -133,7 +133,7 @@
                     <div class="form-group">
                       <div class="form-line">
                         <label>Número:</label>
-                        <input type="text" class="form-control" [(ngModel)]="patient.socialInsurance.number">
+                        <input type="text" class="form-control" [(ngModel)]="patient.socialInsurance.number" #socialInsurance.number="ngModel" name="socialInsurance.number">
                       </div>
                     </div>
                   </div>

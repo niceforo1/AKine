@@ -45,7 +45,7 @@
                     <br>
                     <i class="material-icons small valign-center" style="font-size:16px;">mail_outline</i>:  {{patient.email}}
                   </th>
-                  <th>{{patient.email}}</th>
+                  <th>{{patient.socialInsurance._id.name}} {{patient.socialInsurance.number}}</th>
                   <th>
                     <button type="button" class="btn btn-raised btn-circle waves-effect waves-circle waves-float bg-cyan" [routerLink]="['/edit-patient', patient._id]">
                       <i class="material-icons">edit</i>

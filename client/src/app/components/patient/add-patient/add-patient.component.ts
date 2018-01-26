@@ -27,6 +27,7 @@ export class AddPatientComponent implements OnInit {
   socialInsurances: any;
   socialInsurance: PatientSocialInsurance;
 
+
   constructor(private _patientService: PatientService, private _socialInsuranceService: SocialInsuranceService,
               private _router: Router, private _activatedRoute: ActivatedRoute) {
     this.action = 'Guardar';
@@ -96,5 +97,4 @@ export class AddPatientComponent implements OnInit {
     catch (e) {
     };
   }
-
 }
