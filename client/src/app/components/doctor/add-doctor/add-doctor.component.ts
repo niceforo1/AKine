@@ -35,7 +35,6 @@ export class AddDoctorComponent implements OnInit {
     this.title = "Agregar Licenciado";
     this.message = null;
     this.messageClass = null;
-    //this.phones = new Array();
     this.socialInsurances = new Array();
     this.professional = new Professional();
     /*PHONE*/
@@ -84,6 +83,11 @@ export class AddDoctorComponent implements OnInit {
           console.log(`${err.error}`)
         });
       }
-    })
+    },
+    err => {
+      this.messageClass = 'alert alert-danger alert-dismissible';
+      this.message = `${err.error}`
+      console.log(`${err.error}`)
+    });
   }
 }

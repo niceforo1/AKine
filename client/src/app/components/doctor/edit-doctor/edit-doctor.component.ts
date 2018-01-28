@@ -22,7 +22,7 @@ export class EditDoctorComponent implements OnInit {
   messageClass : string;
   professional : any;
   phone : Phone;
-  
+
   constructor(private _professionalService: ProfessionalService, private _router: Router, private _activatedRoute: ActivatedRoute) {
     this.action = "Editar";
     this.title = "Editar Licenciado";
@@ -37,16 +37,19 @@ export class EditDoctorComponent implements OnInit {
     this.getProfessional();
   }
 
-
   getProfessional(){
     this._activatedRoute.params.forEach((params:Params)=>{
       let id = params['id'];
       this._professionalService.searchProfessional(id).subscribe(response => {
         this.professional = response;
+      },
+      err => {
+        this.messageClass = 'alert alert-danger alert-dismissible';
+        this.message = `${err.error}`
+        console.log(`${err.error}`)
       });
     });
   }
-
 
   onSubmit() {
     this.message = null;
@@ -54,15 +57,17 @@ export class EditDoctorComponent implements OnInit {
   }
 
   saveProfessional() {
-    try {
-      this._professionalService.updateProfessional(this.professional, this.professional._id).subscribe(data => {
+    this._professionalService.updateProfessional(this.professional, this.professional._id).subscribe(data => {
         this.messageClass = 'alert alert-success alert-dismissible';
         this.message = 'El profesional fue guardado correctamente.';
         setTimeout(() => {
           this._router.navigate(['/list-doctors']);
         }, 2000);
-      });
-    }
-    catch (e){}
+      },
+    err => {
+      this.messageClass = 'alert alert-danger alert-dismissible';
+      this.message = `${err.error}`
+      console.log(`${err.error}`)
+    });
   }
 }

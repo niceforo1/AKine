@@ -27,7 +27,6 @@ export class EditPatientComponent implements OnInit {
   socialInsurances: any;
   socialInsurance: PatientSocialInsurance;
 
-
   constructor(private _patientService: PatientService, private _socialInsuranceService: SocialInsuranceService,
               private _router: Router, private _activatedRoute: ActivatedRoute) {
     this.action = 'Editar';
@@ -53,38 +52,42 @@ export class EditPatientComponent implements OnInit {
   }
 
   savePatient() {
-    try {
-      this._patientService.updatePatient(this.patient, this.patient._id).subscribe(data => {
-        this.messageClass = 'alert alert-success alert-dismissible';
-        this.message = 'El paciente fue guardado correctamente.';
-        setTimeout(() => {
-          this._router.navigate(['/list-patients']);
-        }, 2000);
-      });
-    }
-    catch (e){}
+    this._patientService.updatePatient(this.patient, this.patient._id).subscribe(data => {
+      this.messageClass = 'alert alert-success alert-dismissible';
+      this.message = 'El paciente fue guardado correctamente.';
+      setTimeout(() => {
+        this._router.navigate(['/list-patients']);
+      }, 2000);
+    },
+    err => {
+      this.messageClass = 'alert alert-danger alert-dismissible';
+      this.message = `${err.error}`
+      console.log(`${err.error}`)
+    });
   }
 
   getPatients(){
-    try {
-        this._activatedRoute.params.forEach((params:Params)=>{
-          let id = params['id'];
-          this._patientService.searchPatient(id).subscribe(response => {
-            this.patient = response;
-          });
-        });
-    }
-    catch (e) {
-    };
+    this._activatedRoute.params.forEach((params:Params)=>{
+      let id = params['id'];
+      this._patientService.searchPatient(id).subscribe(response => {
+        this.patient = response;
+      },
+      err => {
+        this.messageClass = 'alert alert-danger alert-dismissible';
+        this.message = `${err.error}`
+        console.log(`${err.error}`)
+      });
+    });
   }
 
   getSocialInsurances() {
-    try {
-      this._socialInsuranceService.getSocialInsurance().subscribe(response => {
-        this.socialInsurances = response;
-      });
-    }
-    catch (e) {
-    };
+    this._socialInsuranceService.getSocialInsurance().subscribe(response => {
+      this.socialInsurances = response;
+    },
+    err => {
+      this.messageClass = 'alert alert-danger alert-dismissible';
+      this.message = `${err.error}`
+      console.log(`${err.error}`)
+    });
   }
 }
