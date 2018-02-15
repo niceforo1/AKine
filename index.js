@@ -6,6 +6,7 @@ const keys = require('./config/keys');
 // Se importan los modelos
 require('./models/patient');
 require('./models/professional');
+require('./models/professionalSchedule');
 require('./models/medicalRecord');
 require('./models/socialInsurance');
 
@@ -49,6 +50,7 @@ app.use((req, res, next) => {
 // se le pasa por parametro al archivo externo el cual modifica la app
 // agregando las rutas necesarias para la aplicación
 require('./routes/patientsRoutes')(app, mongoose);
+require('./routes/professionalSchedulesRoutes')(app, mongoose);
 require('./routes/professionalsRoutes')(app, mongoose);
 require('./routes/medicalRecordsRoutes')(app, mongoose);
 require('./routes/socialInsurancesRoutes')(app, mongoose);
