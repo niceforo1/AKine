@@ -9,7 +9,7 @@ require('./models/professional');
 require('./models/professionalSchedule');
 require('./models/medicalRecord');
 require('./models/socialInsurance');
-
+require('./models/event');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI, {
@@ -54,6 +54,7 @@ require('./routes/professionalSchedulesRoutes')(app, mongoose);
 require('./routes/professionalsRoutes')(app, mongoose);
 require('./routes/medicalRecordsRoutes')(app, mongoose);
 require('./routes/socialInsurancesRoutes')(app, mongoose);
+require('./routes/eventsRoutes')(app, mongoose);
 // Consulta de ambientes, para el caso que sea production
 // el frontend se carga desde el build y se setea como middleware
 // para que todas las peticiones del front no sean procesadas por el backend
