@@ -5,7 +5,7 @@ module.exports = (app, mongoose) => {
     const patient = await Patient.find().populate({
       path: 'socialInsurance._id',
       model: 'socialInsurance'
-    });
+    }).sort('lastName');
     try {
       res.send(patient);
     } catch (err) {
