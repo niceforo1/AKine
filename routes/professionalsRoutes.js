@@ -2,8 +2,8 @@ module.exports = (app, mongoose) => {
   const Professional = mongoose.model('professional');
 
   app.get('/api/professionals', async (req, res) => {
-    const professional = await Professional.find().sort('lastName');
     try {
+      const professional = await Professional.find().sort('lastName');
       res.send(professional);
     } catch (err) {
       res.status(500).send(err);

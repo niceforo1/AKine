@@ -2,8 +2,8 @@ module.exports = (app, mongoose) => {
   const MedicalRecord = mongoose.model('medicalRecord');
 
   app.get('/api/medicalRecords', async (req, res) => {
-    const medicalRecord = await MedicalRecord.find();
     try {
+      const medicalRecord = await MedicalRecord.find();
       res.send(medicalRecord);
     } catch (err) {
       res.status(500).send(err);

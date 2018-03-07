@@ -2,8 +2,8 @@ module.exports = (app, mongoose) => {
   const ProfessionalSchedule = mongoose.model('professionalSchedule');
 
   app.get('/api/professionalSchedules', async (req, res) => {
-    const professionalSchedule = await ProfessionalSchedule.find();
     try {
+      const professionalSchedule = await ProfessionalSchedule.find();
       res.send(professionalSchedule);
     } catch (err) {
       res.status(500).send(err);

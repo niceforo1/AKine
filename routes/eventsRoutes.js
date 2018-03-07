@@ -2,8 +2,11 @@ module.exports = (app, mongoose) => {
   const Event = mongoose.model('event');
 
   app.get('/api/events', async (req, res) => {
-    const event = await Event.find();
     try {
+      const event = await Event.find().populate({
+          path: 'patient',
+          model: 'patient'
+      });
       res.send(event);
     } catch (err) {
       res.status(500).send(err);
@@ -24,31 +27,25 @@ module.exports = (app, mongoose) => {
       const {
         professional,
         patient,
+        consultationTypeId,
+        requestDay,
         date,
-        eventType,
-        weight,
-        height,
-        bloodPressure,
-        physicalExam,
-        complementaryStudies,
-        observations,
-        icd10,
-        personalNotes
+        status,
+        overSchedule,
+        spontaneous,
+        observations
       } = req.body;
 
       const event = await new Event({
         professional,
         patient,
+        consultationTypeId,
+        requestDay,
         date,
-        eventType,
-        weight,
-        height,
-        bloodPressure,
-        physicalExam,
-        complementaryStudies,
-        observations,
-        icd10,
-        personalNotes
+        status,
+        overSchedule,
+        spontaneous,
+        observations
       });
 
       await event.save();

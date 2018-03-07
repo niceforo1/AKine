@@ -2,8 +2,8 @@ module.exports = (app, mongoose) => {
   const SocialInsurance = mongoose.model('socialInsurance');
 
   app.get('/api/socialInsurances', async (req, res) => {
-    const socialInsurance = await SocialInsurance.find();
     try {
+      const socialInsurance = await SocialInsurance.find();
       res.send(socialInsurance);
     } catch (err) {
       res.status(500).send(err);

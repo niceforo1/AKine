@@ -4,9 +4,9 @@ const patientSchema = require('./patient');
 const { Schema } = mongoose;
 
 const eventSchema = new Schema({
-    professional: { type: Schema.ObjectId, ref: 'professionalSchema' },
-    patient: { type: Schema.ObjectId, ref: 'patientSchema' },
-    consultation_type_id: Number,
+    professionalId: { type: Schema.ObjectId, ref: 'professionalSchema' },
+    patientId: { type: Schema.ObjectId, ref: 'patientSchema' },
+    consultationTypeId: Number,
     requestDay: String,
     date: Date,
     status: String,
