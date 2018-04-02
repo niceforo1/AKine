@@ -5,7 +5,7 @@ module.exports = app => {
     try {
       res.send(
         locations.filter(loc => {
-          return loc.iso_31662 === req.params.province;
+          return loc.provincia === req.params.province;
         })
       );
     } catch (err) {

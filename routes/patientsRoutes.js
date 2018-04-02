@@ -16,7 +16,10 @@ module.exports = (app, mongoose) => {
 
   app.get('/api/patients/:id', async (req, res) => {
     try {
-      const patient = await Patient.findById(req.params.id);
+      const patient = await Patient.findById(req.params.id).populate({
+        path: 'socialInsurance._id',
+        model: 'socialInsurance'
+      });
       res.send(patient);
     } catch (err) {
       res.status(500).send(err);
