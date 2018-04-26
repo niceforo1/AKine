@@ -33,6 +33,7 @@ module.exports = (app, mongoose) => {
   app.post('/api/professionals', async (req, res) => {
     try {
       const {
+        user,
         id,
         name,
         lastName,
@@ -48,6 +49,7 @@ module.exports = (app, mongoose) => {
       } = req.body;
 
       const professional = await new Professional({
+        user,
         id,
         name,
         lastName,
