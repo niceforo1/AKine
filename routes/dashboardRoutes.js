@@ -8,12 +8,18 @@ module.exports = (app, mongoose) => {
         try {
             const patient = await Patient.count({});
             const professional = await Professional.count({});
-            const pacientesPorObSoc = await Patient.aggregate({
+            const pacientesPorObSoc = await Patient.aggregate(
+                [{
+                    "$match": {
+                        "socialInsurance._id": { "$ne": null }
+                    }
+                },
+                    {
                 $group: {
                     _id: '$socialInsurance._id',
                     count: { $sum: 1 }
                 }
-            });
+            }]);
             const arr = pacientesPorObSoc.map(async (item, index) => {
                 const socIns = await SocialInsurance.findOne({ _id: item._id });
                 return {
