@@ -58,6 +58,7 @@ require('./routes/medicalRecordsRoutes')(app, mongoose);
 require('./routes/socialInsurancesRoutes')(app, mongoose);
 require('./routes/eventsRoutes')(app, mongoose);
 require('./routes/locationRoutes')(app);
+require('./routes/specialisationRoutes')(app);
 require('./routes/dashboardRoutes')(app, mongoose);
 
 // Consulta de ambientes, para el caso que sea production
