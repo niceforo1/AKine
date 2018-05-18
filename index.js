@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
+const bcrypt = require('bcrypt-nodejs');
+const jwt = require('./services/jwt');
 
 // Se importan los modelos
 require('./models/user');
@@ -31,6 +33,7 @@ app.use(
     extended: true
   })
 );
+
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
@@ -50,7 +53,8 @@ app.use((req, res, next) => {
 // Se agregan las rutas que se van a manejar dentro de la aplicación
 // se le pasa por parametro al archivo externo el cual modifica la app
 // agregando las rutas necesarias para la aplicación
-require('./routes/userRoutes')(app, mongoose);
+
+require('./routes/userRoutes')(app, mongoose, bcrypt, jwt);
 require('./routes/patientsRoutes')(app, mongoose);
 require('./routes/professionalSchedulesRoutes')(app, mongoose);
 require('./routes/professionalsRoutes')(app, mongoose);
